@@ -24,6 +24,7 @@ namespace Webcam_AForge_Edition
             InitializeComponent();
             buttonCamStart.Enabled = false; //doesn't enable webcam on startup
             gv = new GlobalVars(); // Initialize variable 
+            buttonCapture.Enabled = false;
         }
         
         /**************************************************************************************/
@@ -108,7 +109,8 @@ namespace Webcam_AForge_Edition
                 gv.FinalVideo.Start();
 
                 buttonCamStart.Enabled = false;
-                buttonStop.Enabled = true; 
+                buttonStop.Enabled = true;
+                buttonCapture.Enabled = true;
             }
         }
 
@@ -186,6 +188,7 @@ namespace Webcam_AForge_Edition
 
                 buttonCamStart.Enabled = false;
                 buttonStop.Enabled = true;
+                buttonCamStart.Enabled = false;
             }
         }
 
@@ -200,8 +203,9 @@ namespace Webcam_AForge_Edition
                 gv.FinalVideo.WaitForStop();
             }
             gv.FinalVideo = null;
-            buttonCamStart.Enabled = true;
             buttonStop.Enabled = false;
+            buttonCamStart.Enabled = true;
+            buttonCapture.Enabled = false;
         }
     }
 }
