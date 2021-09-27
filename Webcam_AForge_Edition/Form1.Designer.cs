@@ -78,9 +78,8 @@
             // buttonCamStart
             // 
             this.buttonCamStart.Location = new System.Drawing.Point(106, 413);
-            this.buttonCamStart.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCamStart.Name = "buttonCamStart";
-            this.buttonCamStart.Size = new System.Drawing.Size(46, 20);
+            this.buttonCamStart.Size = new System.Drawing.Size(75, 23);
             this.buttonCamStart.TabIndex = 3;
             this.buttonCamStart.Text = "Start";
             this.buttonCamStart.UseVisualStyleBackColor = true;
@@ -97,7 +96,7 @@
             // 
             // buttonGray
             // 
-            this.buttonGray.Location = new System.Drawing.Point(218, 412);
+            this.buttonGray.Location = new System.Drawing.Point(268, 413);
             this.buttonGray.Name = "buttonGray";
             this.buttonGray.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.buttonGray.Size = new System.Drawing.Size(75, 23);
@@ -134,10 +133,9 @@
             // 
             // buttonStop
             // 
-            this.buttonStop.Location = new System.Drawing.Point(157, 413);
-            this.buttonStop.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonStop.Location = new System.Drawing.Point(187, 413);
             this.buttonStop.Name = "buttonStop";
-            this.buttonStop.Size = new System.Drawing.Size(46, 20);
+            this.buttonStop.Size = new System.Drawing.Size(75, 23);
             this.buttonStop.TabIndex = 11;
             this.buttonStop.Text = "Stop";
             this.buttonStop.UseVisualStyleBackColor = true;
