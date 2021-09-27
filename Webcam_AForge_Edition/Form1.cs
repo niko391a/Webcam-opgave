@@ -45,6 +45,7 @@ namespace Webcam_AForge_Edition
                 buttonCamStart.Enabled = true;
             }
             buttonStop.Enabled = false; //unable to click stop before start is clicked
+            panel1.Visible = false;
         }
 
         /**************************************************************************************/
@@ -206,6 +207,18 @@ namespace Webcam_AForge_Edition
             buttonStop.Enabled = false;
             buttonCamStart.Enabled = true;
             buttonCapture.Enabled = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (panel1.Visible == true)
+            {
+                panel1.Visible = false;
+            }
+            else
+            {
+                panel1.Visible = true;
+            }
         }
     }
 }

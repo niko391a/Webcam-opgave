@@ -42,9 +42,13 @@
             this.Bbutton = new System.Windows.Forms.Button();
             this.Gbutton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.rGBChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.imgVideo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // imgVideo
@@ -61,10 +65,10 @@
             this.buttonCapture.BackColor = System.Drawing.Color.Red;
             this.buttonCapture.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCapture.ForeColor = System.Drawing.Color.White;
-            this.buttonCapture.Location = new System.Drawing.Point(18, 537);
+            this.buttonCapture.Location = new System.Drawing.Point(26, 537);
             this.buttonCapture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonCapture.Name = "buttonCapture";
-            this.buttonCapture.Size = new System.Drawing.Size(730, 87);
+            this.buttonCapture.Size = new System.Drawing.Size(716, 87);
             this.buttonCapture.TabIndex = 1;
             this.buttonCapture.Text = "Capture";
             this.buttonCapture.UseVisualStyleBackColor = false;
@@ -117,7 +121,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.undoToolStripMenuItem,
-            this.resolutionToolStripMenuItem});
+            this.resolutionToolStripMenuItem,
+            this.rGBChannelsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1488, 44);
@@ -151,55 +156,95 @@
             // 
             // Rbutton
             // 
-            this.Rbutton.Location = new System.Drawing.Point(999, 797);
+            this.Rbutton.BackColor = System.Drawing.Color.Brown;
+            this.Rbutton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Rbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rbutton.ForeColor = System.Drawing.Color.White;
+            this.Rbutton.Location = new System.Drawing.Point(0, 0);
             this.Rbutton.Margin = new System.Windows.Forms.Padding(6);
             this.Rbutton.Name = "Rbutton";
             this.Rbutton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Rbutton.Size = new System.Drawing.Size(150, 44);
+            this.Rbutton.Size = new System.Drawing.Size(238, 83);
             this.Rbutton.TabIndex = 12;
             this.Rbutton.Text = "R-channel";
-            this.Rbutton.UseVisualStyleBackColor = true;
+            this.Rbutton.UseVisualStyleBackColor = false;
             // 
             // Bbutton
             // 
-            this.Bbutton.Location = new System.Drawing.Point(1323, 797);
+            this.Bbutton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.Bbutton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Bbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bbutton.ForeColor = System.Drawing.Color.White;
+            this.Bbutton.Location = new System.Drawing.Point(478, 0);
             this.Bbutton.Margin = new System.Windows.Forms.Padding(6);
             this.Bbutton.Name = "Bbutton";
             this.Bbutton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Bbutton.Size = new System.Drawing.Size(150, 44);
+            this.Bbutton.Size = new System.Drawing.Size(238, 83);
             this.Bbutton.TabIndex = 13;
             this.Bbutton.Text = "B-channel";
-            this.Bbutton.UseVisualStyleBackColor = true;
+            this.Bbutton.UseVisualStyleBackColor = false;
             // 
             // Gbutton
             // 
-            this.Gbutton.Location = new System.Drawing.Point(1161, 797);
+            this.Gbutton.BackColor = System.Drawing.Color.ForestGreen;
+            this.Gbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Gbutton.ForeColor = System.Drawing.Color.White;
+            this.Gbutton.Location = new System.Drawing.Point(239, 0);
             this.Gbutton.Margin = new System.Windows.Forms.Padding(6);
             this.Gbutton.Name = "Gbutton";
             this.Gbutton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Gbutton.Size = new System.Drawing.Size(150, 44);
+            this.Gbutton.Size = new System.Drawing.Size(238, 83);
             this.Gbutton.TabIndex = 14;
             this.Gbutton.Text = "G-channel";
-            this.Gbutton.UseVisualStyleBackColor = true;
+            this.Gbutton.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1157, 740);
+            this.label1.Location = new System.Drawing.Point(1084, 559);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 25);
+            this.label1.Size = new System.Drawing.Size(0, 25);
             this.label1.TabIndex = 15;
-            this.label1.Text = "RGB Channels";
+            // 
+            // rGBChannelsToolStripMenuItem
+            // 
+            this.rGBChannelsToolStripMenuItem.Name = "rGBChannelsToolStripMenuItem";
+            this.rGBChannelsToolStripMenuItem.Size = new System.Drawing.Size(187, 36);
+            this.rGBChannelsToolStripMenuItem.Text = "RGB-Channels";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.OliveDrab;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(750, 537);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(716, 87);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "RGB-Channels";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.Rbutton);
+            this.panel1.Controls.Add(this.Bbutton);
+            this.panel1.Controls.Add(this.Gbutton);
+            this.panel1.Location = new System.Drawing.Point(750, 631);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(716, 83);
+            this.panel1.TabIndex = 17;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1488, 856);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Gbutton);
-            this.Controls.Add(this.Bbutton);
-            this.Controls.Add(this.Rbutton);
             this.Controls.Add(this.buttonStop);
             this.Controls.Add(this.buttonGray);
             this.Controls.Add(this.imgCapture);
@@ -208,6 +253,7 @@
             this.Controls.Add(this.buttonCapture);
             this.Controls.Add(this.imgVideo);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
@@ -218,6 +264,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,6 +286,9 @@
         private System.Windows.Forms.Button Bbutton;
         private System.Windows.Forms.Button Gbutton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem rGBChannelsToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
