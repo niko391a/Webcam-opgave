@@ -37,12 +37,12 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resolutionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rGBChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonStop = new System.Windows.Forms.Button();
             this.Rbutton = new System.Windows.Forms.Button();
             this.Bbutton = new System.Windows.Forms.Button();
             this.Gbutton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.rGBChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.imgVideo)).BeginInit();
@@ -54,7 +54,7 @@
             // imgVideo
             // 
             this.imgVideo.Location = new System.Drawing.Point(18, 62);
-            this.imgVideo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.imgVideo.Margin = new System.Windows.Forms.Padding(4);
             this.imgVideo.Name = "imgVideo";
             this.imgVideo.Size = new System.Drawing.Size(724, 467);
             this.imgVideo.TabIndex = 0;
@@ -66,7 +66,7 @@
             this.buttonCapture.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCapture.ForeColor = System.Drawing.Color.White;
             this.buttonCapture.Location = new System.Drawing.Point(26, 537);
-            this.buttonCapture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCapture.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCapture.Name = "buttonCapture";
             this.buttonCapture.Size = new System.Drawing.Size(716, 87);
             this.buttonCapture.TabIndex = 1;
@@ -78,7 +78,7 @@
             // 
             this.comboBoxCameraList.FormattingEnabled = true;
             this.comboBoxCameraList.Location = new System.Drawing.Point(22, 794);
-            this.comboBoxCameraList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxCameraList.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxCameraList.Name = "comboBoxCameraList";
             this.comboBoxCameraList.Size = new System.Drawing.Size(180, 33);
             this.comboBoxCameraList.TabIndex = 2;
@@ -86,7 +86,7 @@
             // buttonCamStart
             // 
             this.buttonCamStart.Location = new System.Drawing.Point(212, 794);
-            this.buttonCamStart.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonCamStart.Margin = new System.Windows.Forms.Padding(6);
             this.buttonCamStart.Name = "buttonCamStart";
             this.buttonCamStart.Size = new System.Drawing.Size(150, 44);
             this.buttonCamStart.TabIndex = 3;
@@ -97,7 +97,7 @@
             // imgCapture
             // 
             this.imgCapture.Location = new System.Drawing.Point(750, 62);
-            this.imgCapture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.imgCapture.Margin = new System.Windows.Forms.Padding(4);
             this.imgCapture.Name = "imgCapture";
             this.imgCapture.Size = new System.Drawing.Size(716, 467);
             this.imgCapture.TabIndex = 4;
@@ -106,7 +106,7 @@
             // buttonGray
             // 
             this.buttonGray.Location = new System.Drawing.Point(536, 794);
-            this.buttonGray.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonGray.Margin = new System.Windows.Forms.Padding(6);
             this.buttonGray.Name = "buttonGray";
             this.buttonGray.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.buttonGray.Size = new System.Drawing.Size(150, 44);
@@ -125,7 +125,7 @@
             this.rGBChannelsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1488, 44);
+            this.menuStrip1.Size = new System.Drawing.Size(1488, 40);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -143,10 +143,16 @@
             this.resolutionToolStripMenuItem.Text = "&Resolution";
             this.resolutionToolStripMenuItem.Click += new System.EventHandler(this.resolutionToolStripMenuItem_Click);
             // 
+            // rGBChannelsToolStripMenuItem
+            // 
+            this.rGBChannelsToolStripMenuItem.Name = "rGBChannelsToolStripMenuItem";
+            this.rGBChannelsToolStripMenuItem.Size = new System.Drawing.Size(187, 36);
+            this.rGBChannelsToolStripMenuItem.Text = "RGB-Channels";
+            // 
             // buttonStop
             // 
             this.buttonStop.Location = new System.Drawing.Point(374, 794);
-            this.buttonStop.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonStop.Margin = new System.Windows.Forms.Padding(6);
             this.buttonStop.Name = "buttonStop";
             this.buttonStop.Size = new System.Drawing.Size(150, 44);
             this.buttonStop.TabIndex = 11;
@@ -168,6 +174,7 @@
             this.Rbutton.TabIndex = 12;
             this.Rbutton.Text = "R-channel";
             this.Rbutton.UseVisualStyleBackColor = false;
+            this.Rbutton.Click += new System.EventHandler(this.Rbutton_Click);
             // 
             // Bbutton
             // 
@@ -183,6 +190,7 @@
             this.Bbutton.TabIndex = 13;
             this.Bbutton.Text = "B-channel";
             this.Bbutton.UseVisualStyleBackColor = false;
+            this.Bbutton.Click += new System.EventHandler(this.Bbutton_Click);
             // 
             // Gbutton
             // 
@@ -197,6 +205,7 @@
             this.Gbutton.TabIndex = 14;
             this.Gbutton.Text = "G-channel";
             this.Gbutton.UseVisualStyleBackColor = false;
+            this.Gbutton.Click += new System.EventHandler(this.Gbutton_Click);
             // 
             // label1
             // 
@@ -205,12 +214,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 25);
             this.label1.TabIndex = 15;
-            // 
-            // rGBChannelsToolStripMenuItem
-            // 
-            this.rGBChannelsToolStripMenuItem.Name = "rGBChannelsToolStripMenuItem";
-            this.rGBChannelsToolStripMenuItem.Size = new System.Drawing.Size(187, 36);
-            this.rGBChannelsToolStripMenuItem.Text = "RGB-Channels";
             // 
             // button1
             // 
@@ -255,7 +258,7 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "WebCam Tool";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);

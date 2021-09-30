@@ -220,5 +220,62 @@ namespace Webcam_AForge_Edition
                 panel1.Visible = true;
             }
         }
+
+        private void Rbutton_Click(object sender, EventArgs e)
+        {
+            // 
+            imageStack.Push(new Bitmap(imgCapture.Image)); //pushes captured image to stack
+                                                           //  undoToolStripMenuItem.Enabled = true;
+            Bitmap bt = new Bitmap(imgCapture.Image); //copy the pushed image to varible bt
+            for (int y = 0; y < bt.Height; y++)
+            {
+                for (int x = 0; x < bt.Width; x++)
+                {
+                    Color c = bt.GetPixel(x, y); //give me the color of a pixel
+
+                    int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
+                    bt.SetPixel(x, y, Color.FromArgb(255, avg, 0)); //changes the pixel color to average (greyscale)
+                }
+            }
+            imgCapture.Image = bt; //the picture gets displayed on the right
+        }
+
+        private void Gbutton_Click(object sender, EventArgs e)
+        {
+            // 
+            imageStack.Push(new Bitmap(imgCapture.Image)); //pushes captured image to stack
+                                                           //  undoToolStripMenuItem.Enabled = true;
+            Bitmap bt = new Bitmap(imgCapture.Image); //copy the pushed image to varible bt
+            for (int y = 0; y < bt.Height; y++)
+            {
+                for (int x = 0; x < bt.Width; x++)
+                {
+                    Color c = bt.GetPixel(x, y); //give me the color of a pixel
+
+                    int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
+                    bt.SetPixel(x, y, Color.FromArgb(avg, avg, avg)); //changes the pixel color to average (greyscale)
+                }
+            }
+            imgCapture.Image = bt; //the picture gets displayed on the right
+        }
+
+        private void Bbutton_Click(object sender, EventArgs e)
+        {
+            // 
+            imageStack.Push(new Bitmap(imgCapture.Image)); //pushes captured image to stack
+                                                           //  undoToolStripMenuItem.Enabled = true;
+            Bitmap bt = new Bitmap(imgCapture.Image); //copy the pushed image to varible bt
+            for (int y = 0; y < bt.Height; y++)
+            {
+                for (int x = 0; x < bt.Width; x++)
+                {
+                    Color c = bt.GetPixel(x, y); //give me the color of a pixel
+
+                    int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
+                    bt.SetPixel(x, y, Color.FromArgb(avg, avg, avg)); //changes the pixel color to average (greyscale)
+                }
+            }
+            imgCapture.Image = bt; //the picture gets displayed on the right
+        }
     }
 }
