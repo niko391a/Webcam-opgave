@@ -45,10 +45,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.previousPicture = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgVideo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.previousPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // imgVideo
@@ -239,12 +242,31 @@
             this.panel1.Size = new System.Drawing.Size(716, 83);
             this.panel1.TabIndex = 17;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(829, 775);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 25);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "label2";
+            // 
+            // previousPicture
+            // 
+            this.previousPicture.Location = new System.Drawing.Point(35, 654);
+            this.previousPicture.Name = "previousPicture";
+            this.previousPicture.Size = new System.Drawing.Size(100, 50);
+            this.previousPicture.TabIndex = 19;
+            this.previousPicture.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1488, 856);
+            this.Controls.Add(this.previousPicture);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -268,6 +290,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.previousPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,6 +315,8 @@
         private System.Windows.Forms.ToolStripMenuItem rGBChannelsToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox previousPicture;
     }
 }
 
