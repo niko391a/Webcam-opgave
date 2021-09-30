@@ -1,4 +1,6 @@
 # Webcam-opgave
+![billede](https://user-images.githubusercontent.com/69769473/135424584-37f4123e-d8bb-4682-995e-ab72b5416ee8.png)
+
 Du skal i denne opgave lave en del forbedringer på koden. 
 1. Sørg for at ”Capture knappen” kun kan trykkes på, når der er et billede på skærmen.  
 
