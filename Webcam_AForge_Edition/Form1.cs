@@ -349,6 +349,17 @@ namespace Webcam_AForge_Edition
                     break;
                 default:
                     break;
+
+
+            }
+        }
+
+        private void secondDisplayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            {
+                Form2 NewForm = new Form2();
+                NewForm.Show();
+
             }
         }
     }

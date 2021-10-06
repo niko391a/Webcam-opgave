@@ -47,6 +47,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.previousPicture = new System.Windows.Forms.PictureBox();
+            this.displayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.secondDisplayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.imgVideo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -56,10 +58,10 @@
             // 
             // imgVideo
             // 
-            this.imgVideo.Location = new System.Drawing.Point(18, 62);
-            this.imgVideo.Margin = new System.Windows.Forms.Padding(4);
+            this.imgVideo.Location = new System.Drawing.Point(9, 32);
+            this.imgVideo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.imgVideo.Name = "imgVideo";
-            this.imgVideo.Size = new System.Drawing.Size(724, 467);
+            this.imgVideo.Size = new System.Drawing.Size(362, 243);
             this.imgVideo.TabIndex = 0;
             this.imgVideo.TabStop = false;
             // 
@@ -68,10 +70,10 @@
             this.buttonCapture.BackColor = System.Drawing.Color.Red;
             this.buttonCapture.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCapture.ForeColor = System.Drawing.Color.White;
-            this.buttonCapture.Location = new System.Drawing.Point(26, 537);
-            this.buttonCapture.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCapture.Location = new System.Drawing.Point(13, 279);
+            this.buttonCapture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCapture.Name = "buttonCapture";
-            this.buttonCapture.Size = new System.Drawing.Size(716, 87);
+            this.buttonCapture.Size = new System.Drawing.Size(358, 45);
             this.buttonCapture.TabIndex = 1;
             this.buttonCapture.Text = "Capture";
             this.buttonCapture.UseVisualStyleBackColor = false;
@@ -80,18 +82,17 @@
             // comboBoxCameraList
             // 
             this.comboBoxCameraList.FormattingEnabled = true;
-            this.comboBoxCameraList.Location = new System.Drawing.Point(22, 794);
-            this.comboBoxCameraList.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxCameraList.Location = new System.Drawing.Point(11, 413);
+            this.comboBoxCameraList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxCameraList.Name = "comboBoxCameraList";
-            this.comboBoxCameraList.Size = new System.Drawing.Size(180, 33);
+            this.comboBoxCameraList.Size = new System.Drawing.Size(92, 21);
             this.comboBoxCameraList.TabIndex = 2;
             // 
             // buttonCamStart
             // 
-            this.buttonCamStart.Location = new System.Drawing.Point(212, 794);
-            this.buttonCamStart.Margin = new System.Windows.Forms.Padding(6);
+            this.buttonCamStart.Location = new System.Drawing.Point(106, 413);
             this.buttonCamStart.Name = "buttonCamStart";
-            this.buttonCamStart.Size = new System.Drawing.Size(150, 44);
+            this.buttonCamStart.Size = new System.Drawing.Size(75, 23);
             this.buttonCamStart.TabIndex = 3;
             this.buttonCamStart.Text = "Start";
             this.buttonCamStart.UseVisualStyleBackColor = true;
@@ -99,20 +100,19 @@
             // 
             // imgCapture
             // 
-            this.imgCapture.Location = new System.Drawing.Point(750, 62);
-            this.imgCapture.Margin = new System.Windows.Forms.Padding(4);
+            this.imgCapture.Location = new System.Drawing.Point(375, 32);
+            this.imgCapture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.imgCapture.Name = "imgCapture";
-            this.imgCapture.Size = new System.Drawing.Size(716, 467);
+            this.imgCapture.Size = new System.Drawing.Size(358, 243);
             this.imgCapture.TabIndex = 4;
             this.imgCapture.TabStop = false;
             // 
             // buttonGray
             // 
-            this.buttonGray.Location = new System.Drawing.Point(536, 794);
-            this.buttonGray.Margin = new System.Windows.Forms.Padding(6);
+            this.buttonGray.Location = new System.Drawing.Point(268, 413);
             this.buttonGray.Name = "buttonGray";
             this.buttonGray.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.buttonGray.Size = new System.Drawing.Size(150, 44);
+            this.buttonGray.Size = new System.Drawing.Size(75, 23);
             this.buttonGray.TabIndex = 8;
             this.buttonGray.Text = "Gray scale";
             this.buttonGray.UseVisualStyleBackColor = true;
@@ -120,44 +120,44 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.undoToolStripMenuItem,
             this.resolutionToolStripMenuItem,
-            this.rGBChannelsToolStripMenuItem});
+            this.rGBChannelsToolStripMenuItem,
+            this.displayToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1488, 40);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(744, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(93, 36);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(48, 22);
             this.undoToolStripMenuItem.Text = "&Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
             // resolutionToolStripMenuItem
             // 
             this.resolutionToolStripMenuItem.Name = "resolutionToolStripMenuItem";
-            this.resolutionToolStripMenuItem.Size = new System.Drawing.Size(147, 36);
+            this.resolutionToolStripMenuItem.Size = new System.Drawing.Size(75, 22);
             this.resolutionToolStripMenuItem.Text = "&Resolution";
             this.resolutionToolStripMenuItem.Click += new System.EventHandler(this.resolutionToolStripMenuItem_Click);
             // 
             // rGBChannelsToolStripMenuItem
             // 
             this.rGBChannelsToolStripMenuItem.Name = "rGBChannelsToolStripMenuItem";
-            this.rGBChannelsToolStripMenuItem.Size = new System.Drawing.Size(187, 36);
+            this.rGBChannelsToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
             this.rGBChannelsToolStripMenuItem.Text = "RGB-Channels";
             // 
             // buttonStop
             // 
-            this.buttonStop.Location = new System.Drawing.Point(374, 794);
-            this.buttonStop.Margin = new System.Windows.Forms.Padding(6);
+            this.buttonStop.Location = new System.Drawing.Point(187, 413);
             this.buttonStop.Name = "buttonStop";
-            this.buttonStop.Size = new System.Drawing.Size(150, 44);
+            this.buttonStop.Size = new System.Drawing.Size(75, 23);
             this.buttonStop.TabIndex = 11;
             this.buttonStop.Text = "Stop";
             this.buttonStop.UseVisualStyleBackColor = true;
@@ -170,10 +170,9 @@
             this.Rbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rbutton.ForeColor = System.Drawing.Color.White;
             this.Rbutton.Location = new System.Drawing.Point(0, 0);
-            this.Rbutton.Margin = new System.Windows.Forms.Padding(6);
             this.Rbutton.Name = "Rbutton";
             this.Rbutton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Rbutton.Size = new System.Drawing.Size(238, 83);
+            this.Rbutton.Size = new System.Drawing.Size(119, 43);
             this.Rbutton.TabIndex = 12;
             this.Rbutton.Text = "R-channel";
             this.Rbutton.UseVisualStyleBackColor = false;
@@ -185,11 +184,10 @@
             this.Bbutton.Dock = System.Windows.Forms.DockStyle.Right;
             this.Bbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Bbutton.ForeColor = System.Drawing.Color.White;
-            this.Bbutton.Location = new System.Drawing.Point(478, 0);
-            this.Bbutton.Margin = new System.Windows.Forms.Padding(6);
+            this.Bbutton.Location = new System.Drawing.Point(239, 0);
             this.Bbutton.Name = "Bbutton";
             this.Bbutton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Bbutton.Size = new System.Drawing.Size(238, 83);
+            this.Bbutton.Size = new System.Drawing.Size(119, 43);
             this.Bbutton.TabIndex = 13;
             this.Bbutton.Text = "B-channel";
             this.Bbutton.UseVisualStyleBackColor = false;
@@ -200,11 +198,10 @@
             this.Gbutton.BackColor = System.Drawing.Color.ForestGreen;
             this.Gbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Gbutton.ForeColor = System.Drawing.Color.White;
-            this.Gbutton.Location = new System.Drawing.Point(239, 0);
-            this.Gbutton.Margin = new System.Windows.Forms.Padding(6);
+            this.Gbutton.Location = new System.Drawing.Point(120, 0);
             this.Gbutton.Name = "Gbutton";
             this.Gbutton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Gbutton.Size = new System.Drawing.Size(238, 83);
+            this.Gbutton.Size = new System.Drawing.Size(119, 43);
             this.Gbutton.TabIndex = 14;
             this.Gbutton.Text = "G-channel";
             this.Gbutton.UseVisualStyleBackColor = false;
@@ -213,9 +210,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1084, 559);
+            this.label1.Location = new System.Drawing.Point(542, 291);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 25);
+            this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 15;
             // 
             // button1
@@ -223,10 +221,10 @@
             this.button1.BackColor = System.Drawing.Color.OliveDrab;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(750, 537);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(375, 279);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(716, 87);
+            this.button1.Size = new System.Drawing.Size(358, 45);
             this.button1.TabIndex = 16;
             this.button1.Text = "RGB-Channels";
             this.button1.UseVisualStyleBackColor = false;
@@ -237,34 +235,52 @@
             this.panel1.Controls.Add(this.Rbutton);
             this.panel1.Controls.Add(this.Bbutton);
             this.panel1.Controls.Add(this.Gbutton);
-            this.panel1.Location = new System.Drawing.Point(750, 631);
+            this.panel1.Location = new System.Drawing.Point(375, 328);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(716, 83);
+            this.panel1.Size = new System.Drawing.Size(358, 43);
             this.panel1.TabIndex = 17;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(829, 775);
+            this.label2.Location = new System.Drawing.Point(414, 403);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 25);
+            this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 18;
             this.label2.Text = "label2";
             // 
             // previousPicture
             // 
-            this.previousPicture.Location = new System.Drawing.Point(35, 654);
+            this.previousPicture.Location = new System.Drawing.Point(18, 340);
+            this.previousPicture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.previousPicture.Name = "previousPicture";
-            this.previousPicture.Size = new System.Drawing.Size(100, 50);
+            this.previousPicture.Size = new System.Drawing.Size(50, 26);
             this.previousPicture.TabIndex = 19;
             this.previousPicture.TabStop = false;
             // 
+            // displayToolStripMenuItem
+            // 
+            this.displayToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.secondDisplayToolStripMenuItem});
+            this.displayToolStripMenuItem.Name = "displayToolStripMenuItem";
+            this.displayToolStripMenuItem.Size = new System.Drawing.Size(57, 22);
+            this.displayToolStripMenuItem.Text = "Display";
+            // 
+            // secondDisplayToolStripMenuItem
+            // 
+            this.secondDisplayToolStripMenuItem.Name = "secondDisplayToolStripMenuItem";
+            this.secondDisplayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.secondDisplayToolStripMenuItem.Text = "SecondDisplay";
+            this.secondDisplayToolStripMenuItem.Click += new System.EventHandler(this.secondDisplayToolStripMenuItem_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1488, 856);
+            this.ClientSize = new System.Drawing.Size(744, 445);
             this.Controls.Add(this.previousPicture);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
@@ -280,7 +296,7 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "WebCam Tool";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -317,6 +333,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox previousPicture;
+        private System.Windows.Forms.ToolStripMenuItem displayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem secondDisplayToolStripMenuItem;
     }
 }
 
