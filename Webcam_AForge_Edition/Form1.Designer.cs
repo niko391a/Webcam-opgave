@@ -60,6 +60,7 @@
             this.imgVideo.Margin = new System.Windows.Forms.Padding(4);
             this.imgVideo.Name = "imgVideo";
             this.imgVideo.Size = new System.Drawing.Size(724, 467);
+            this.imgVideo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgVideo.TabIndex = 0;
             this.imgVideo.TabStop = false;
             // 
@@ -103,6 +104,7 @@
             this.imgCapture.Margin = new System.Windows.Forms.Padding(4);
             this.imgCapture.Name = "imgCapture";
             this.imgCapture.Size = new System.Drawing.Size(716, 467);
+            this.imgCapture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgCapture.TabIndex = 4;
             this.imgCapture.TabStop = false;
             // 
@@ -245,7 +247,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(829, 775);
+            this.label2.Location = new System.Drawing.Point(141, 663);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 25);
             this.label2.TabIndex = 18;
