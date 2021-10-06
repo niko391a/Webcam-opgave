@@ -87,6 +87,7 @@ namespace Webcam_AForge_Edition
         private void buttonCapture_Click(object sender, EventArgs e)
         {
             imgCapture.Image = (Image)imgVideo.Image.Clone(); //clones the picture on the left and displays it on the right as a still frame
+            p = 1;
         }
 
         /**************************************************************************************/
