@@ -281,7 +281,9 @@ namespace Webcam_AForge_Edition
                             Color c = bt.GetPixel(x, y); //give me the color of a pixel
 
                             int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
-                            bt.SetPixel(x, y, Color.FromArgb(avg, 255, 0)); //changes the pixel colors so that it is red-scaled
+
+                            // The green attributes is set to 200 instead of 255 for a clearer picture after scale
+                            bt.SetPixel(x, y, Color.FromArgb(avg, 200, 0)); //changes the pixel colors so that it is green-scaled
                         }
                     }
                     imgCapture.Image = bt; //the picture gets displayed on the right
@@ -298,7 +300,7 @@ namespace Webcam_AForge_Edition
                             Color c = bt2.GetPixel(x, y); //give me the color of a pixel
 
                             int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
-                            bt2.SetPixel(x, y, Color.FromArgb(avg, 255, 0)); //changes the pixel colors so that it is red-scaled
+                            bt2.SetPixel(x, y, Color.FromArgb(avg, 200, 0)); //changes the pixel colors so that it is green-scaled
                         }
                     }
                     imgCapture.Image = bt2; //the picture gets displayed on the right
