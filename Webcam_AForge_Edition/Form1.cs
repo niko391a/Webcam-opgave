@@ -18,6 +18,7 @@ namespace Webcam_AForge_Edition
         //variable declaration
         Stack<Bitmap> imageStack; //stack of bitmap pictures (pictures from webcam is bitmap) is initialized
         internal GlobalVars gv;  // Instantiate Global Var
+        int p = 1;
 
         public Form1()
         {
@@ -25,6 +26,7 @@ namespace Webcam_AForge_Edition
             buttonCamStart.Enabled = false; //doesn't enable webcam on startup
             gv = new GlobalVars(); // Initialize variable 
             buttonCapture.Enabled = false;
+            previousPicture.Visible = false;
         }
         
         /**************************************************************************************/
@@ -218,6 +220,135 @@ namespace Webcam_AForge_Edition
             else
             {
                 panel1.Visible = true;
+            }
+        }
+
+        private void Rbutton_Click(object sender, EventArgs e)
+        {
+            switch (p)
+            {
+                case 1:
+                    imageStack.Push(new Bitmap(imgCapture.Image)); //pushes captured image to stack
+                                                                   //undoToolStripMenuItem.Enabled = true;
+                    Bitmap bt = new Bitmap(imgCapture.Image); //copy the pushed image to varible bt
+                    for (int y = 0; y < bt.Height; y++)
+                    {
+                        for (int x = 0; x < bt.Width; x++)
+                        {
+                            Color c = bt.GetPixel(x, y); //give me the color of a pixel
+
+                            int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
+                            bt.SetPixel(x, y, Color.FromArgb(255, avg, 0)); //changes the pixel colors so that it is red-scaled
+                        }
+                    }
+                    imgCapture.Image = bt; //the picture gets displayed on the right
+                    previousPicture.Image = bt; //the picture gets saved for later
+                    p = 2;
+                    label2.Text = Convert.ToString(p);
+                    break;
+                case 2:                                                             //undoToolStripMenuItem.Enabled = true;
+                    Bitmap bt2 = new Bitmap(previousPicture.Image); //copy the pushed image to varible bt
+                    for (int y = 0; y < bt2.Height; y++)
+                    {
+                        for (int x = 0; x < bt2.Width; x++)
+                        {
+                            Color c = bt2.GetPixel(x, y); //give me the color of a pixel
+
+                            int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
+                            bt2.SetPixel(x, y, Color.FromArgb(255, avg, 0)); //changes the pixel colors so that it is red-scaled
+                        }
+                    }
+                    imgCapture.Image = bt2; //the picture gets displayed on the right
+                    label2.Text = Convert.ToString(p);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void Gbutton_Click(object sender, EventArgs e)
+        {
+            switch (p)
+            {
+                case 1:
+                    imageStack.Push(new Bitmap(imgCapture.Image)); //pushes captured image to stack
+                                                                   //undoToolStripMenuItem.Enabled = true;
+                    Bitmap bt = new Bitmap(imgCapture.Image); //copy the pushed image to varible bt
+                    for (int y = 0; y < bt.Height; y++)
+                    {
+                        for (int x = 0; x < bt.Width; x++)
+                        {
+                            Color c = bt.GetPixel(x, y); //give me the color of a pixel
+
+                            int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
+                            bt.SetPixel(x, y, Color.FromArgb(avg, 255, 0)); //changes the pixel colors so that it is red-scaled
+                        }
+                    }
+                    imgCapture.Image = bt; //the picture gets displayed on the right
+                    previousPicture.Image = bt; //the picture gets saved for later
+                    p = 2;
+                    label2.Text = Convert.ToString(p);
+                    break;
+                case 2:                                                             //undoToolStripMenuItem.Enabled = true;
+                    Bitmap bt2 = new Bitmap(previousPicture.Image); //copy the pushed image to varible bt
+                    for (int y = 0; y < bt2.Height; y++)
+                    {
+                        for (int x = 0; x < bt2.Width; x++)
+                        {
+                            Color c = bt2.GetPixel(x, y); //give me the color of a pixel
+
+                            int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
+                            bt2.SetPixel(x, y, Color.FromArgb(avg, 255, 0)); //changes the pixel colors so that it is red-scaled
+                        }
+                    }
+                    imgCapture.Image = bt2; //the picture gets displayed on the right
+                    label2.Text = Convert.ToString(p);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void Bbutton_Click(object sender, EventArgs e)
+        {
+            switch (p)
+            {
+                case 1:
+                    imageStack.Push(new Bitmap(imgCapture.Image)); //pushes captured image to stack
+                                                                   //undoToolStripMenuItem.Enabled = true;
+                    Bitmap bt = new Bitmap(imgCapture.Image); //copy the pushed image to varible bt
+                    for (int y = 0; y < bt.Height; y++)
+                    {
+                        for (int x = 0; x < bt.Width; x++)
+                        {
+                            Color c = bt.GetPixel(x, y); //give me the color of a pixel
+
+                            int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
+                            bt.SetPixel(x, y, Color.FromArgb(0, avg, 255)); //changes the pixel colors so that it is red-scaled
+                        }
+                    }
+                    imgCapture.Image = bt; //the picture gets displayed on the right
+                    previousPicture.Image = bt; //the picture gets saved for later
+                    p = 2;
+                    label2.Text = Convert.ToString(p);
+                    break;
+                case 2:                                                             //undoToolStripMenuItem.Enabled = true;
+                    Bitmap bt2 = new Bitmap(previousPicture.Image); //copy the pushed image to varible bt
+                    for (int y = 0; y < bt2.Height; y++)
+                    {
+                        for (int x = 0; x < bt2.Width; x++)
+                        {
+                            Color c = bt2.GetPixel(x, y); //give me the color of a pixel
+
+                            int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
+                            bt2.SetPixel(x, y, Color.FromArgb(0, avg, 255)); //changes the pixel colors so that it is red-scaled
+                        }
+                    }
+                    imgCapture.Image = bt2; //the picture gets displayed on the right
+                    label2.Text = Convert.ToString(p);
+                    break;
+                default:
+                    break;
             }
         }
     }
