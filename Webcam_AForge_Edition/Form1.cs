@@ -84,7 +84,7 @@ namespace Webcam_AForge_Edition
         /**************************************************************************************/
         //
         /**************************************************************************************/
-        private void buttonCapture_Click(object sender, EventArgs e)
+        public void buttonCapture_Click(object sender, EventArgs e)
         {
             imgCapture.Image = (Image)imgVideo.Image.Clone(); //clones the picture on the left and displays it on the right as a still frame
         }
@@ -360,6 +360,7 @@ namespace Webcam_AForge_Edition
                 Form2 NewForm = new Form2();
                 NewForm.Show();
 
+                imgCapture.Image = Form2.chart1;
             }
         }
     }
