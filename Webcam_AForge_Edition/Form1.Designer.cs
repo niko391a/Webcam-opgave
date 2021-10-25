@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.imgVideo = new System.Windows.Forms.PictureBox();
             this.buttonCapture = new System.Windows.Forms.Button();
             this.comboBoxCameraList = new System.Windows.Forms.ComboBox();
@@ -47,6 +48,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.previousPicture = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.buttonTimerStop = new System.Windows.Forms.Button();
+            this.buttonStartTimer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgVideo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -261,12 +265,42 @@
             this.previousPicture.TabIndex = 19;
             this.previousPicture.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // buttonTimerStop
+            // 
+            this.buttonTimerStop.Location = new System.Drawing.Point(860, 797);
+            this.buttonTimerStop.Margin = new System.Windows.Forms.Padding(6);
+            this.buttonTimerStop.Name = "buttonTimerStop";
+            this.buttonTimerStop.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.buttonTimerStop.Size = new System.Drawing.Size(150, 44);
+            this.buttonTimerStop.TabIndex = 20;
+            this.buttonTimerStop.Text = "Stop Timer";
+            this.buttonTimerStop.UseVisualStyleBackColor = true;
+            this.buttonTimerStop.Click += new System.EventHandler(this.buttonTimerToggle_Click);
+            // 
+            // buttonStartTimer
+            // 
+            this.buttonStartTimer.Location = new System.Drawing.Point(698, 797);
+            this.buttonStartTimer.Margin = new System.Windows.Forms.Padding(6);
+            this.buttonStartTimer.Name = "buttonStartTimer";
+            this.buttonStartTimer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.buttonStartTimer.Size = new System.Drawing.Size(150, 44);
+            this.buttonStartTimer.TabIndex = 21;
+            this.buttonStartTimer.Text = "Start Timer";
+            this.buttonStartTimer.UseVisualStyleBackColor = true;
+            this.buttonStartTimer.Click += new System.EventHandler(this.buttonStartTimer_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1488, 856);
+            this.Controls.Add(this.buttonStartTimer);
+            this.Controls.Add(this.buttonTimerStop);
             this.Controls.Add(this.previousPicture);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
@@ -319,6 +353,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox previousPicture;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button buttonTimerStop;
+        private System.Windows.Forms.Button buttonStartTimer;
     }
 }
 
