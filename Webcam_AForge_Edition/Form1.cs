@@ -27,8 +27,10 @@ namespace Webcam_AForge_Edition
             gv = new GlobalVars(); // Initialize variable 
             buttonCapture.Enabled = false;
             previousPicture.Visible = false;
+            buttonToggleTimer.Enabled = false;
+            buttonGray.Enabled = false;
         }
-        
+
         /**************************************************************************************/
         //
         /**************************************************************************************/
@@ -87,6 +89,9 @@ namespace Webcam_AForge_Edition
         private void buttonCapture_Click(object sender, EventArgs e)
         {
             imgCapture.Image = (Image)imgVideo.Image.Clone(); //clones the picture on the left and displays it on the right as a still frame
+            p = 1; //switch case variable
+            buttonToggleTimer.Enabled = true;
+            buttonGray.Enabled = true;
         }
 
         /**************************************************************************************/
@@ -281,7 +286,9 @@ namespace Webcam_AForge_Edition
                             Color c = bt.GetPixel(x, y); //give me the color of a pixel
 
                             int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
-                            bt.SetPixel(x, y, Color.FromArgb(avg, 255, 0)); //changes the pixel colors so that it is red-scaled
+
+                            // The green attributes is set to 200 instead of 255 for a clearer picture after scale
+                            bt.SetPixel(x, y, Color.FromArgb(avg, 200, 0)); //changes the pixel colors so that it is green-scaled
                         }
                     }
                     imgCapture.Image = bt; //the picture gets displayed on the right
@@ -298,7 +305,7 @@ namespace Webcam_AForge_Edition
                             Color c = bt2.GetPixel(x, y); //give me the color of a pixel
 
                             int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
-                            bt2.SetPixel(x, y, Color.FromArgb(avg, 255, 0)); //changes the pixel colors so that it is red-scaled
+                            bt2.SetPixel(x, y, Color.FromArgb(avg, 200, 0)); //changes the pixel colors so that it is green-scaled
                         }
                     }
                     imgCapture.Image = bt2; //the picture gets displayed on the right
@@ -349,6 +356,24 @@ namespace Webcam_AForge_Edition
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            imgCapture.Image = (Image)imgVideo.Image.Clone(); //clones the picture on the left and displays it on the right as a still frame
+            p = 1; //switch case variable
+        }
+
+        private void buttonToggleTimer_Click_1(object sender, EventArgs e)
+        {
+            if (timer1.Enabled == true)
+            {
+                timer1.Enabled = false; //disables the timer so that it can't run the code in the specified interval
+            }
+            else
+            {
+                timer1.Enabled = true; //enables the timer so that it can run the code in the specified interval
             }
         }
     }
