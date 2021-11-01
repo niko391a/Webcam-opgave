@@ -20,6 +20,8 @@ namespace Webcam_AForge_Edition
         internal GlobalVars gv;  // Instantiate Global Var
         int p = 1;
 
+        //public Image Test;
+
         public Form1()
         {
             InitializeComponent();
@@ -28,7 +30,9 @@ namespace Webcam_AForge_Edition
             buttonCapture.Enabled = false;
             previousPicture.Visible = false;
         }
+
         
+
         /**************************************************************************************/
         //
         /**************************************************************************************/
@@ -87,6 +91,10 @@ namespace Webcam_AForge_Edition
         public void buttonCapture_Click(object sender, EventArgs e)
         {
             imgCapture.Image = (Image)imgVideo.Image.Clone(); //clones the picture on the left and displays it on the right as a still frame
+
+            
+            //Test = (Image)imgVideo.Image.Clone(); // just testing
+
         }
 
         /**************************************************************************************/
@@ -360,8 +368,11 @@ namespace Webcam_AForge_Edition
                 Form2 NewForm = new Form2();
                 NewForm.Show();
 
-                imgCapture.Image = Form2.chart1;
+                NewForm.Imagefromform1 = imgCapture.Image; 
+                
             }
         }
+
+        
     }
 }

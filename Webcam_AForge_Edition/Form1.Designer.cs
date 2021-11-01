@@ -38,6 +38,8 @@
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resolutionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rGBChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.displayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.secondDisplayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonStop = new System.Windows.Forms.Button();
             this.Rbutton = new System.Windows.Forms.Button();
             this.Bbutton = new System.Windows.Forms.Button();
@@ -47,8 +49,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.previousPicture = new System.Windows.Forms.PictureBox();
-            this.displayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.secondDisplayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.imgVideo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -59,11 +59,12 @@
             // imgVideo
             // 
             this.imgVideo.Location = new System.Drawing.Point(9, 32);
-            this.imgVideo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imgVideo.Margin = new System.Windows.Forms.Padding(2);
             this.imgVideo.Name = "imgVideo";
             this.imgVideo.Size = new System.Drawing.Size(362, 243);
             this.imgVideo.TabIndex = 0;
             this.imgVideo.TabStop = false;
+           
             // 
             // buttonCapture
             // 
@@ -71,7 +72,7 @@
             this.buttonCapture.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCapture.ForeColor = System.Drawing.Color.White;
             this.buttonCapture.Location = new System.Drawing.Point(13, 279);
-            this.buttonCapture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCapture.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCapture.Name = "buttonCapture";
             this.buttonCapture.Size = new System.Drawing.Size(358, 45);
             this.buttonCapture.TabIndex = 1;
@@ -83,7 +84,7 @@
             // 
             this.comboBoxCameraList.FormattingEnabled = true;
             this.comboBoxCameraList.Location = new System.Drawing.Point(11, 413);
-            this.comboBoxCameraList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxCameraList.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxCameraList.Name = "comboBoxCameraList";
             this.comboBoxCameraList.Size = new System.Drawing.Size(92, 21);
             this.comboBoxCameraList.TabIndex = 2;
@@ -101,7 +102,7 @@
             // imgCapture
             // 
             this.imgCapture.Location = new System.Drawing.Point(375, 32);
-            this.imgCapture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imgCapture.Margin = new System.Windows.Forms.Padding(2);
             this.imgCapture.Name = "imgCapture";
             this.imgCapture.Size = new System.Drawing.Size(358, 243);
             this.imgCapture.TabIndex = 4;
@@ -152,6 +153,21 @@
             this.rGBChannelsToolStripMenuItem.Name = "rGBChannelsToolStripMenuItem";
             this.rGBChannelsToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
             this.rGBChannelsToolStripMenuItem.Text = "RGB-Channels";
+            // 
+            // displayToolStripMenuItem
+            // 
+            this.displayToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.secondDisplayToolStripMenuItem});
+            this.displayToolStripMenuItem.Name = "displayToolStripMenuItem";
+            this.displayToolStripMenuItem.Size = new System.Drawing.Size(57, 22);
+            this.displayToolStripMenuItem.Text = "Display";
+            // 
+            // secondDisplayToolStripMenuItem
+            // 
+            this.secondDisplayToolStripMenuItem.Name = "secondDisplayToolStripMenuItem";
+            this.secondDisplayToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.secondDisplayToolStripMenuItem.Text = "SecondDisplay";
+            this.secondDisplayToolStripMenuItem.Click += new System.EventHandler(this.secondDisplayToolStripMenuItem_Click);
             // 
             // buttonStop
             // 
@@ -222,7 +238,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(375, 279);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(358, 45);
             this.button1.TabIndex = 16;
@@ -236,7 +252,7 @@
             this.panel1.Controls.Add(this.Bbutton);
             this.panel1.Controls.Add(this.Gbutton);
             this.panel1.Location = new System.Drawing.Point(375, 328);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(358, 43);
             this.panel1.TabIndex = 17;
@@ -254,26 +270,11 @@
             // previousPicture
             // 
             this.previousPicture.Location = new System.Drawing.Point(18, 340);
-            this.previousPicture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.previousPicture.Margin = new System.Windows.Forms.Padding(2);
             this.previousPicture.Name = "previousPicture";
             this.previousPicture.Size = new System.Drawing.Size(50, 26);
             this.previousPicture.TabIndex = 19;
             this.previousPicture.TabStop = false;
-            // 
-            // displayToolStripMenuItem
-            // 
-            this.displayToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.secondDisplayToolStripMenuItem});
-            this.displayToolStripMenuItem.Name = "displayToolStripMenuItem";
-            this.displayToolStripMenuItem.Size = new System.Drawing.Size(57, 22);
-            this.displayToolStripMenuItem.Text = "Display";
-            // 
-            // secondDisplayToolStripMenuItem
-            // 
-            this.secondDisplayToolStripMenuItem.Name = "secondDisplayToolStripMenuItem";
-            this.secondDisplayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.secondDisplayToolStripMenuItem.Text = "SecondDisplay";
-            this.secondDisplayToolStripMenuItem.Click += new System.EventHandler(this.secondDisplayToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -296,7 +297,7 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "WebCam Tool";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
