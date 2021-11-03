@@ -447,5 +447,11 @@ namespace Webcam_AForge_Edition
                 timer2.Enabled = true; //enables the timer so that it can run the code in the specified interval
             }
         }
+
+        private void displayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 NewForm = new Form2(imgCapture.Image);
+            NewForm.Show();
+        }
     }
 }
