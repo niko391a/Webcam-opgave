@@ -16,49 +16,19 @@ namespace Webcam_AForge_Edition
     public partial class Form2 : Form
     {
 
-        public Image Imagefromform1 { get; set; }
+        public Image Imagefromform1 { get; set; } //a public variable that makes it able to get pictures from Form1
 
-        //public Bitmap Imagefromform1 { get; set; }
+        
 
-        Stack<Bitmap> imageStack; //stack of bitmap pictures (pictures from webcam is bitmap) is initialized
-        internal GlobalVars gv;  // Instantiate Global Var
-        public Form2()
-        {
+ 
+       
+        public Form2(Image im)
+        { 
+            Imagefromform1 =im;
             InitializeComponent();
-            
-    }
-        private FilterInfoCollection CaptureDevices;
-        private VideoCaptureDevice videosource;
-
-        public void OldPicture()
-        {
-            
-        }
-
-        public void chart1_Click(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        public void pictureBoxform2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
             pictureBoxform2.Image = Imagefromform1;
-
-            //gv.VideoCaptureDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice); //gives all video devices and put them in a list
-            //foreach (FilterInfo VideoCaptureDevice in gv.VideoCaptureDevices) //filtering of list
-            //{
-            //    comboBoxCameraList.Items.Add(VideoCaptureDevice.Name);
-            //}
-            //comboBox1.SelectedIndex = 0;
-            //videosource = new VideoCaptureDevice;
-
         }
+        
+       
     }
 }

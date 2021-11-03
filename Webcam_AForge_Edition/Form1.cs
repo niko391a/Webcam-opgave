@@ -20,7 +20,7 @@ namespace Webcam_AForge_Edition
         internal GlobalVars gv;  // Instantiate Global Var
         int p = 1;
 
-        //public Image Test;
+       
 
         public Form1()
         {
@@ -78,7 +78,7 @@ namespace Webcam_AForge_Edition
         /**************************************************************************************/
         //
         /**************************************************************************************/
-        void FinalVideo_NewFrame(object sender, NewFrameEventArgs eventArgs) //takes the picture in webcam and displays it to the screen
+        public void FinalVideo_NewFrame(object sender, NewFrameEventArgs eventArgs) //takes the picture in webcam and displays it to the screen
         {
             Bitmap video = (Bitmap)eventArgs.Frame.Clone();
             imgVideo.Image = video;
@@ -93,7 +93,7 @@ namespace Webcam_AForge_Edition
             imgCapture.Image = (Image)imgVideo.Image.Clone(); //clones the picture on the left and displays it on the right as a still frame
 
             
-            //Test = (Image)imgVideo.Image.Clone(); // just testing
+            
 
         }
 
@@ -365,14 +365,15 @@ namespace Webcam_AForge_Edition
         private void secondDisplayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             {
-                Form2 NewForm = new Form2();
+                Form2 NewForm = new Form2(imgVideo.Image);
                 NewForm.Show();
 
-                NewForm.Imagefromform1 = imgCapture.Image; 
                 
             }
         }
 
         
     }
+
+    
 }

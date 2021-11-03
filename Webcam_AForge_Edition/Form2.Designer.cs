@@ -58,7 +58,7 @@
             this.chart1.Size = new System.Drawing.Size(523, 303);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
-            this.chart1.Click += new System.EventHandler(this.chart1_Click);
+            
             // 
             // pictureBoxform2
             // 
@@ -67,7 +67,7 @@
             this.pictureBoxform2.Size = new System.Drawing.Size(311, 303);
             this.pictureBoxform2.TabIndex = 1;
             this.pictureBoxform2.TabStop = false;
-            this.pictureBoxform2.Click += new System.EventHandler(this.pictureBoxform2_Click);
+          
             // 
             // Form2
             // 
@@ -78,7 +78,7 @@
             this.Controls.Add(this.chart1);
             this.Name = "Form2";
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Form2_Load);
+         
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxform2)).EndInit();
             this.ResumeLayout(false);
