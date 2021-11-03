@@ -27,8 +27,7 @@ namespace Webcam_AForge_Edition
             gv = new GlobalVars(); // Initialize variable 
             buttonCapture.Enabled = false;
             previousPicture.Visible = false;
-            buttonTimerStop.Enabled = false;
-            buttonStartTimer.Enabled = false;
+            buttonTimer.Enabled = false;
             buttonGray.Enabled = false;
         }
 
@@ -91,8 +90,7 @@ namespace Webcam_AForge_Edition
         {
             imgCapture.Image = (Image)imgVideo.Image.Clone(); //clones the picture on the left and displays it on the right as a still frame
             p = 1; //switch case variable
-            buttonTimerStop.Enabled = true;
-            buttonStartTimer.Enabled = true;
+            buttonTimer.Enabled = true;
             buttonGray.Enabled = true;
         }
 
@@ -372,9 +370,17 @@ namespace Webcam_AForge_Edition
             timer1.Enabled = true; //enables the timer so that it can run the code in the specified interval
         }
 
-        private void buttonTimerToggle_Click(object sender, EventArgs e)
+
+        private void buttonTimer_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = false; //disables the timer so that it can run the code in the specified interval
+            if (timer1.Enabled == true)
+            {
+                timer1.Enabled = false; //disables the timer so that it can't run the code in the specified interval
+            }
+            else
+            {
+                timer1.Enabled = true; //enables the timer so that it can run the code in the specified interval
+            }
         }
     }
 }
