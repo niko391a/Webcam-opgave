@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge.Video;
 using AForge.Video.DirectShow;
+using AForge.Imaging.Filters;
+using AForge.Imaging;
 
 namespace Webcam_AForge_Edition
 {
@@ -25,10 +27,7 @@ namespace Webcam_AForge_Edition
             InitializeComponent();
             buttonCamStart.Enabled = false; //doesn't enable webcam on startup
             gv = new GlobalVars(); // Initialize variable 
-            buttonCapture.Enabled = false;
             previousPicture.Visible = false;
-            buttonToggleTimer.Enabled = false;
-            buttonGray.Enabled = false;
         }
 
         /**************************************************************************************/
@@ -57,7 +56,7 @@ namespace Webcam_AForge_Edition
         /**************************************************************************************/
         private void Form1_FormClosing(object sender, FormClosingEventArgs e) //do you want to close?
         {
-            DialogResult dr = MessageBox.Show("Sure you want to close?", "Are you sure?", MessageBoxButtons.YesNo);  
+            DialogResult dr = MessageBox.Show("Sure you want to close?", "Are you sure?", MessageBoxButtons.YesNo);
             if (DialogResult.No == dr)
             {
                 e.Cancel = true;
@@ -72,7 +71,7 @@ namespace Webcam_AForge_Edition
                 gv.FinalVideo = null;
             }
         }
-        
+
         /**************************************************************************************/
         //
         /**************************************************************************************/
@@ -88,10 +87,17 @@ namespace Webcam_AForge_Edition
         /**************************************************************************************/
         private void buttonCapture_Click(object sender, EventArgs e)
         {
-            imgCapture.Image = (Image)imgVideo.Image.Clone(); //clones the picture on the left and displays it on the right as a still frame
-            p = 1; //switch case variable
-            buttonToggleTimer.Enabled = true;
-            buttonGray.Enabled = true;
+            try
+            {
+                imgCapture.Image = (System.Drawing.Image)imgVideo.Image.Clone(); //clones the picture on the left and displays it on the right as a still frame
+                p = 1; //switch case variable
+                buttonToggleTimer.Enabled = true;
+                buttonGray.Enabled = true;
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("You need to choose a webcan and wait for the webcam to start");
+            }
         }
 
         /**************************************************************************************/
@@ -101,7 +107,7 @@ namespace Webcam_AForge_Edition
         {
             gv.FinalVideo = new VideoCaptureDevice(gv.VideoCaptureDevices[comboBoxCameraList.SelectedIndex].MonikerString); //the selected video feed is the one our combo box uses
 
-            CameraSettings cs = new CameraSettings(gv); 
+            CameraSettings cs = new CameraSettings(gv);
             DialogResult dr = cs.ShowDialog(); //shows available presets for webcam such as resolution and bitcount
 
             if (DialogResult.OK == dr)
@@ -115,10 +121,6 @@ namespace Webcam_AForge_Edition
                 // Enable eventhandler
                 gv.FinalVideo.NewFrame += new NewFrameEventHandler(FinalVideo_NewFrame); //eventhandler is started and we being to stream the video feed, finalvideo will be called when a new picture is created (fps)
                 gv.FinalVideo.Start();
-
-                buttonCamStart.Enabled = false;
-                buttonStop.Enabled = true;
-                buttonCapture.Enabled = true;
             }
         }
 
@@ -166,21 +168,26 @@ namespace Webcam_AForge_Edition
         {
             // Only if there is still something left on ehe stack
             if (imageStack.Count > 0) //checks if there is a picture in the stack (error handling)
+            {
                 imgCapture.Image = imageStack.Pop(); //pop the picture and put it back in the image capture
+            }
+            else
+            {
+                MessageBox.Show("You need to capture a picture first");
+            }
         }
 
         /**************************************************************************************/
         //
         /**************************************************************************************/
-        private void resolutionToolStripMenuItem_Click(object sender, EventArgs e) 
+        private void resolutionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             gv.FinalVideo.SignalToStop();
-            
+
             gv.FinalVideo.Stop(); //stops the video so we can make changes
             gv.FinalVideo.WaitForStop();
             gv.FinalVideo.NewFrame -= new NewFrameEventHandler(FinalVideo_NewFrame); //stops the processing of new images
-            
+
             CameraSettings cs = new CameraSettings(gv); //displays settings again
             DialogResult dr = cs.ShowDialog();
 
@@ -230,150 +237,214 @@ namespace Webcam_AForge_Edition
 
         private void Rbutton_Click(object sender, EventArgs e)
         {
-            switch (p)
+            try
             {
-                case 1:
-                    imageStack.Push(new Bitmap(imgCapture.Image)); //pushes captured image to stack
-                                                                   //undoToolStripMenuItem.Enabled = true;
-                    Bitmap bt = new Bitmap(imgCapture.Image); //copy the pushed image to varible bt
-                    for (int y = 0; y < bt.Height; y++)
-                    {
-                        for (int x = 0; x < bt.Width; x++)
+                switch (p)
+                {
+                    case 1:
+                        imageStack.Push(new Bitmap(imgCapture.Image)); //pushes captured image to stack
+                                                                       //undoToolStripMenuItem.Enabled = true;
+                        Bitmap bt = new Bitmap(imgCapture.Image); //copy the pushed image to varible bt
+                        for (int y = 0; y < bt.Height; y++)
                         {
-                            Color c = bt.GetPixel(x, y); //give me the color of a pixel
+                            for (int x = 0; x < bt.Width; x++)
+                            {
+                                Color c = bt.GetPixel(x, y); //give me the color of a pixel
 
-                            int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
-                            bt.SetPixel(x, y, Color.FromArgb(255, avg, 0)); //changes the pixel colors so that it is red-scaled
+                                int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
+                                bt.SetPixel(x, y, Color.FromArgb(255, avg, 0)); //changes the pixel colors so that it is red-scaled
+                            }
                         }
-                    }
-                    imgCapture.Image = bt; //the picture gets displayed on the right
-                    previousPicture.Image = bt; //the picture gets saved for later
-                    p = 2;
-                    label2.Text = Convert.ToString(p);
-                    break;
-                case 2:                                                             //undoToolStripMenuItem.Enabled = true;
-                    Bitmap bt2 = new Bitmap(previousPicture.Image); //copy the pushed image to varible bt
-                    for (int y = 0; y < bt2.Height; y++)
-                    {
-                        for (int x = 0; x < bt2.Width; x++)
+                        imgCapture.Image = bt; //the picture gets displayed on the right
+                        previousPicture.Image = bt; //the picture gets saved for later
+                        p = 2;
+                        label2.Text = Convert.ToString(p);
+                        break;
+                    case 2:                                                             //undoToolStripMenuItem.Enabled = true;
+                        Bitmap bt2 = new Bitmap(previousPicture.Image); //copy the pushed image to varible bt
+                        for (int y = 0; y < bt2.Height; y++)
                         {
-                            Color c = bt2.GetPixel(x, y); //give me the color of a pixel
+                            for (int x = 0; x < bt2.Width; x++)
+                            {
+                                Color c = bt2.GetPixel(x, y); //give me the color of a pixel
 
-                            int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
-                            bt2.SetPixel(x, y, Color.FromArgb(255, avg, 0)); //changes the pixel colors so that it is red-scaled
+                                int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
+                                bt2.SetPixel(x, y, Color.FromArgb(255, avg, 0)); //changes the pixel colors so that it is red-scaled
+                            }
                         }
-                    }
-                    imgCapture.Image = bt2; //the picture gets displayed on the right
-                    label2.Text = Convert.ToString(p);
-                    break;
-                default:
-                    break;
+                        imgCapture.Image = bt2; //the picture gets displayed on the right
+                        label2.Text = Convert.ToString(p);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("You need to capture a picture first");
             }
         }
 
         private void Gbutton_Click(object sender, EventArgs e)
         {
-            switch (p)
+            try
             {
-                case 1:
-                    imageStack.Push(new Bitmap(imgCapture.Image)); //pushes captured image to stack
-                                                                   //undoToolStripMenuItem.Enabled = true;
-                    Bitmap bt = new Bitmap(imgCapture.Image); //copy the pushed image to varible bt
-                    for (int y = 0; y < bt.Height; y++)
-                    {
-                        for (int x = 0; x < bt.Width; x++)
+                switch (p)
+                {
+                    case 1:
+                        imageStack.Push(new Bitmap(imgCapture.Image)); //pushes captured image to stack
+                                                                       //undoToolStripMenuItem.Enabled = true;
+                        Bitmap bt = new Bitmap(imgCapture.Image); //copy the pushed image to varible bt
+                        for (int y = 0; y < bt.Height; y++)
                         {
-                            Color c = bt.GetPixel(x, y); //give me the color of a pixel
+                            for (int x = 0; x < bt.Width; x++)
+                            {
+                                Color c = bt.GetPixel(x, y); //give me the color of a pixel
 
-                            int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
+                                int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
 
-                            // The green attributes is set to 200 instead of 255 for a clearer picture after scale
-                            bt.SetPixel(x, y, Color.FromArgb(avg, 200, 0)); //changes the pixel colors so that it is green-scaled
+                                // The green attributes is set to 200 instead of 255 for a clearer picture after scale
+                                bt.SetPixel(x, y, Color.FromArgb(avg, 200, 0)); //changes the pixel colors so that it is green-scaled
+                            }
                         }
-                    }
-                    imgCapture.Image = bt; //the picture gets displayed on the right
-                    previousPicture.Image = bt; //the picture gets saved for later
-                    p = 2;
-                    label2.Text = Convert.ToString(p);
-                    break;
-                case 2:                                                             //undoToolStripMenuItem.Enabled = true;
-                    Bitmap bt2 = new Bitmap(previousPicture.Image); //copy the pushed image to varible bt
-                    for (int y = 0; y < bt2.Height; y++)
-                    {
-                        for (int x = 0; x < bt2.Width; x++)
+                        imgCapture.Image = bt; //the picture gets displayed on the right
+                        previousPicture.Image = bt; //the picture gets saved for later
+                        p = 2;
+                        label2.Text = Convert.ToString(p);
+                        break;
+                    case 2:                                                             //undoToolStripMenuItem.Enabled = true;
+                        Bitmap bt2 = new Bitmap(previousPicture.Image); //copy the pushed image to varible bt
+                        for (int y = 0; y < bt2.Height; y++)
                         {
-                            Color c = bt2.GetPixel(x, y); //give me the color of a pixel
+                            for (int x = 0; x < bt2.Width; x++)
+                            {
+                                Color c = bt2.GetPixel(x, y); //give me the color of a pixel
 
-                            int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
-                            bt2.SetPixel(x, y, Color.FromArgb(avg, 200, 0)); //changes the pixel colors so that it is green-scaled
+                                int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
+                                bt2.SetPixel(x, y, Color.FromArgb(avg, 200, 0)); //changes the pixel colors so that it is green-scaled
+                            }
                         }
-                    }
-                    imgCapture.Image = bt2; //the picture gets displayed on the right
-                    label2.Text = Convert.ToString(p);
-                    break;
-                default:
-                    break;
+                        imgCapture.Image = bt2; //the picture gets displayed on the right
+                        label2.Text = Convert.ToString(p);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("You need to capture a picture first");
             }
         }
 
         private void Bbutton_Click(object sender, EventArgs e)
         {
-            switch (p)
+            try
             {
-                case 1:
-                    imageStack.Push(new Bitmap(imgCapture.Image)); //pushes captured image to stack
-                                                                   //undoToolStripMenuItem.Enabled = true;
-                    Bitmap bt = new Bitmap(imgCapture.Image); //copy the pushed image to varible bt
-                    for (int y = 0; y < bt.Height; y++)
-                    {
-                        for (int x = 0; x < bt.Width; x++)
+                switch (p)
+                {
+                    case 1:
+                        imageStack.Push(new Bitmap(imgCapture.Image)); //pushes captured image to stack
+                                                                       //undoToolStripMenuItem.Enabled = true;
+                        Bitmap bt = new Bitmap(imgCapture.Image); //copy the pushed image to varible bt
+                        for (int y = 0; y < bt.Height; y++)
                         {
-                            Color c = bt.GetPixel(x, y); //give me the color of a pixel
+                            for (int x = 0; x < bt.Width; x++)
+                            {
+                                Color c = bt.GetPixel(x, y); //give me the color of a pixel
 
-                            int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
-                            bt.SetPixel(x, y, Color.FromArgb(0, avg, 255)); //changes the pixel colors so that it is red-scaled
+                                int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
+                                bt.SetPixel(x, y, Color.FromArgb(0, avg, 255)); //changes the pixel colors so that it is red-scaled
+                            }
                         }
-                    }
-                    imgCapture.Image = bt; //the picture gets displayed on the right
-                    previousPicture.Image = bt; //the picture gets saved for later
-                    p = 2;
-                    label2.Text = Convert.ToString(p);
-                    break;
-                case 2:                                                             //undoToolStripMenuItem.Enabled = true;
-                    Bitmap bt2 = new Bitmap(previousPicture.Image); //copy the pushed image to varible bt
-                    for (int y = 0; y < bt2.Height; y++)
-                    {
-                        for (int x = 0; x < bt2.Width; x++)
+                        imgCapture.Image = bt; //the picture gets displayed on the right
+                        previousPicture.Image = bt; //the picture gets saved for later
+                        p = 2;
+                        label2.Text = Convert.ToString(p);
+                        break;
+                    case 2:                                                             //undoToolStripMenuItem.Enabled = true;
+                        Bitmap bt2 = new Bitmap(previousPicture.Image); //copy the pushed image to varible bt
+                        for (int y = 0; y < bt2.Height; y++)
                         {
-                            Color c = bt2.GetPixel(x, y); //give me the color of a pixel
+                            for (int x = 0; x < bt2.Width; x++)
+                            {
+                                Color c = bt2.GetPixel(x, y); //give me the color of a pixel
 
-                            int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
-                            bt2.SetPixel(x, y, Color.FromArgb(0, avg, 255)); //changes the pixel colors so that it is red-scaled
+                                int avg = (c.R + c.G + c.B) / 3; //calculate average of pixel
+                                bt2.SetPixel(x, y, Color.FromArgb(0, avg, 255)); //changes the pixel colors so that it is red-scaled
+                            }
                         }
-                    }
-                    imgCapture.Image = bt2; //the picture gets displayed on the right
-                    label2.Text = Convert.ToString(p);
-                    break;
-                default:
-                    break;
+                        imgCapture.Image = bt2; //the picture gets displayed on the right
+                        label2.Text = Convert.ToString(p);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("You need to capture a picture first");
             }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            imgCapture.Image = (Image)imgVideo.Image.Clone(); //clones the picture on the left and displays it on the right as a still frame
+            imgCapture.Image = (System.Drawing.Image)imgVideo.Image.Clone(); //clones the picture on the left and displays it on the right as a still frame
             p = 1; //switch case variable
         }
 
         private void buttonToggleTimer_Click_1(object sender, EventArgs e)
         {
-            if (timer1.Enabled == true)
+            try
             {
-                timer1.Enabled = false; //disables the timer so that it can't run the code in the specified interval
+                if (timer1.Enabled == true)
+                {
+                    timer1.Enabled = false; //disables the timer so that it can't run the code in the specified interval
+                }
+                else
+                {
+                    timer1.Enabled = true; //enables the timer so that it can run the code in the specified interval
+                }
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("You need to capture a picture first");
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e) //a faster greyscale using aforge instead of couting each pixel
+        {
+            try
+            {
+                imgCapture.Image = (System.Drawing.Image)imgVideo.Image.Clone(); //clones the picture on the left and displays it on the right as a still frame
+
+                //Push old image onto stack
+                imageStack.Push(new Bitmap(imgCapture.Image));
+                undoToolStripMenuItem.Enabled = true;
+
+                //Creation of greyscale filter
+                Grayscale filter = new Grayscale(0.2125, 0.7154, 0.0721);
+                Bitmap bt = new Bitmap(imgCapture.Image);
+
+                //applying the filter
+                Bitmap grayImage = filter.Apply(bt);
+                imgCapture.Image = (System.Drawing.Image)grayImage.Clone(); //clones the picture grayImage and displays it on the left
+                p = 1; //switch case variable
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("You need to capture a picture first");
+            }
+        }
+        private void fastGray_Click_1(object sender, EventArgs e)
+        {
+            if (timer2.Enabled == true)
+            {
+                timer2.Enabled = false; //disables the timer so that it can't run the code in the specified interval
             }
             else
             {
-                timer1.Enabled = true; //enables the timer so that it can run the code in the specified interval
+                timer2.Enabled = true; //enables the timer so that it can run the code in the specified interval
             }
         }
     }
