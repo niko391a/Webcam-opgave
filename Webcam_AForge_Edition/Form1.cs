@@ -482,6 +482,7 @@ namespace Webcam_AForge_Edition
                 }
             }
             ofd.Dispose();
+            imageStack.Push(new Bitmap(imgCapture.Image));
         }
     }
 }
