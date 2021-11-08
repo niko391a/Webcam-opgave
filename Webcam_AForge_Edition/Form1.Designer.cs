@@ -53,6 +53,7 @@
             this.fastGray = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.buttonBlobDetection = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgVideo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -277,24 +278,26 @@
             // 
             // buttonToggleTimer
             // 
+            this.buttonToggleTimer.BackColor = System.Drawing.Color.Red;
             this.buttonToggleTimer.Location = new System.Drawing.Point(698, 796);
             this.buttonToggleTimer.Margin = new System.Windows.Forms.Padding(6);
             this.buttonToggleTimer.Name = "buttonToggleTimer";
             this.buttonToggleTimer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.buttonToggleTimer.Size = new System.Drawing.Size(174, 44);
+            this.buttonToggleTimer.Size = new System.Drawing.Size(232, 44);
             this.buttonToggleTimer.TabIndex = 21;
-            this.buttonToggleTimer.Text = "Toggle Timer";
-            this.buttonToggleTimer.UseVisualStyleBackColor = true;
+            this.buttonToggleTimer.Text = "Toggle Auto Capture";
+            this.buttonToggleTimer.UseVisualStyleBackColor = false;
             this.buttonToggleTimer.Click += new System.EventHandler(this.buttonToggleTimer_Click_1);
             // 
             // fastGray
             // 
-            this.fastGray.Location = new System.Drawing.Point(881, 796);
+            this.fastGray.BackColor = System.Drawing.Color.Red;
+            this.fastGray.Location = new System.Drawing.Point(939, 796);
             this.fastGray.Name = "fastGray";
-            this.fastGray.Size = new System.Drawing.Size(190, 44);
+            this.fastGray.Size = new System.Drawing.Size(250, 44);
             this.fastGray.TabIndex = 22;
-            this.fastGray.Text = "Auto grayscale";
-            this.fastGray.UseVisualStyleBackColor = true;
+            this.fastGray.Text = "Toggle Auto grayscale";
+            this.fastGray.UseVisualStyleBackColor = false;
             this.fastGray.Click += new System.EventHandler(this.fastGray_Click_1);
             // 
             // button3
@@ -310,12 +313,23 @@
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // buttonBlobDetection
+            // 
+            this.buttonBlobDetection.Location = new System.Drawing.Point(1195, 798);
+            this.buttonBlobDetection.Name = "buttonBlobDetection";
+            this.buttonBlobDetection.Size = new System.Drawing.Size(182, 40);
+            this.buttonBlobDetection.TabIndex = 24;
+            this.buttonBlobDetection.Text = "Blob detection";
+            this.buttonBlobDetection.UseVisualStyleBackColor = true;
+            this.buttonBlobDetection.Click += new System.EventHandler(this.buttonBlobDetection_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1488, 856);
+            this.Controls.Add(this.buttonBlobDetection);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.fastGray);
             this.Controls.Add(this.buttonToggleTimer);
@@ -376,6 +390,7 @@
         private System.Windows.Forms.Button fastGray;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Button buttonBlobDetection;
     }
 }
 

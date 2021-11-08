@@ -138,7 +138,6 @@ namespace Webcam_AForge_Edition
         {
             try
             {
-                // 
                 imageStack.Push(new Bitmap(imgCapture.Image)); //pushes captured image to stack
                 //  undoToolStripMenuItem.Enabled = true;
                 Bitmap bt = new Bitmap(imgCapture.Image); //copy the pushed image to varible bt
@@ -400,10 +399,13 @@ namespace Webcam_AForge_Edition
                 if (timer1.Enabled == true)
                 {
                     timer1.Enabled = false; //disables the timer so that it can't run the code in the specified interval
+                    buttonToggleTimer.BackColor = Color.Red; //visual feedback to user
                 }
                 else
                 {
                     timer1.Enabled = true; //enables the timer so that it can run the code in the specified interval
+                    timer2.Enabled = false; //prevents two timers from running at the same time
+                    buttonToggleTimer.BackColor = Color.Green; //visual feedback to user
                 }
             }
             catch (NullReferenceException)
@@ -433,7 +435,7 @@ namespace Webcam_AForge_Edition
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("You need to capture a picture first");
+                //MessageBox.Show("You need to capture a picture first");
             }
         }
         private void fastGray_Click_1(object sender, EventArgs e)
@@ -441,11 +443,24 @@ namespace Webcam_AForge_Edition
             if (timer2.Enabled == true)
             {
                 timer2.Enabled = false; //disables the timer so that it can't run the code in the specified interval
+                fastGray.BackColor = Color.Red; //visual feedback to user
             }
             else
             {
+                timer1.Enabled = false; //prevents two timers from running at the same time
                 timer2.Enabled = true; //enables the timer so that it can run the code in the specified interval
+                fastGray.BackColor = Color.Green; //visual feedback to user
             }
+        }
+
+        private void buttonBlobDetection_Click(object sender, EventArgs e)
+        {
+            Bitmap bt = new Bitmap(imgCapture.Image); //convert system.drawing to bitmap
+                                                      // create filter
+            ExtractBiggestBlob filter = new ExtractBiggestBlob();
+            // apply the filter
+            Bitmap biggestBlobsImage = filter.Apply(bt);
+            imgCapture.Image = (System.Drawing.Image)biggestBlobsImage.Clone(); //clones the picture grayImage and displays it on the left
         }
     }
 }
