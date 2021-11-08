@@ -20,6 +20,8 @@ namespace Webcam_AForge_Edition
             Imagefromform1 = im;
             InitializeComponent();
             pictureBoxForm2.Image = Imagefromform1;
+
+
         }
 
 
