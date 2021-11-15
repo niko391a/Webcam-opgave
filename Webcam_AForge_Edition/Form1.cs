@@ -451,7 +451,7 @@ namespace Webcam_AForge_Edition
             }
         }
 
-        private void buttonBlobDetection_Click(object sender, EventArgs e)
+        private void buttonBlobDetection_Click(object sender, EventArgs e) //to do
         {
             Bitmap bd = new Bitmap(imgCapture.Image); //convert system.drawing to bitmap
             ////create filter
