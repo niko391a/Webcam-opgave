@@ -257,7 +257,6 @@ namespace Webcam_AForge_Edition
                         imgCapture.Image = bt; //the picture gets displayed on the right
                         previousPicture.Image = bt; //the picture gets saved for later
                         p = 2;
-                        label2.Text = Convert.ToString(p);
                         break;
                     case 2:                                                             //undoToolStripMenuItem.Enabled = true;
                         Bitmap bt2 = new Bitmap(previousPicture.Image); //copy the pushed image to varible bt
@@ -272,7 +271,6 @@ namespace Webcam_AForge_Edition
                             }
                         }
                         imgCapture.Image = bt2; //the picture gets displayed on the right
-                        label2.Text = Convert.ToString(p);
                         break;
                     default:
                         break;
@@ -309,7 +307,6 @@ namespace Webcam_AForge_Edition
                         imgCapture.Image = bt; //the picture gets displayed on the right
                         previousPicture.Image = bt; //the picture gets saved for later
                         p = 2;
-                        label2.Text = Convert.ToString(p);
                         break;
                     case 2:                                                             //undoToolStripMenuItem.Enabled = true;
                         Bitmap bt2 = new Bitmap(previousPicture.Image); //copy the pushed image to varible bt
@@ -324,7 +321,6 @@ namespace Webcam_AForge_Edition
                             }
                         }
                         imgCapture.Image = bt2; //the picture gets displayed on the right
-                        label2.Text = Convert.ToString(p);
                         break;
                     default:
                         break;
@@ -359,7 +355,6 @@ namespace Webcam_AForge_Edition
                         imgCapture.Image = bt; //the picture gets displayed on the right
                         previousPicture.Image = bt; //the picture gets saved for later
                         p = 2;
-                        label2.Text = Convert.ToString(p);
                         break;
                     case 2:                                                             //undoToolStripMenuItem.Enabled = true;
                         Bitmap bt2 = new Bitmap(previousPicture.Image); //copy the pushed image to varible bt
@@ -374,7 +369,6 @@ namespace Webcam_AForge_Edition
                             }
                         }
                         imgCapture.Image = bt2; //the picture gets displayed on the right
-                        label2.Text = Convert.ToString(p);
                         break;
                     default:
                         break;

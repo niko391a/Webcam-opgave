@@ -45,7 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.previousPicture = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.buttonToggleTimer = new System.Windows.Forms.Button();
@@ -135,21 +134,21 @@
             this.resolutionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1488, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1488, 48);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(93, 36);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(93, 44);
             this.undoToolStripMenuItem.Text = "&Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
             // resolutionToolStripMenuItem
             // 
             this.resolutionToolStripMenuItem.Name = "resolutionToolStripMenuItem";
-            this.resolutionToolStripMenuItem.Size = new System.Drawing.Size(147, 36);
+            this.resolutionToolStripMenuItem.Size = new System.Drawing.Size(147, 44);
             this.resolutionToolStripMenuItem.Text = "&Resolution";
             this.resolutionToolStripMenuItem.Click += new System.EventHandler(this.resolutionToolStripMenuItem_Click);
             // 
@@ -245,16 +244,6 @@
             this.panel1.Size = new System.Drawing.Size(716, 83);
             this.panel1.TabIndex = 17;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(140, 663);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 25);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "label2";
-            // 
             // previousPicture
             // 
             this.previousPicture.Location = new System.Drawing.Point(36, 654);
@@ -326,7 +315,6 @@
             this.Controls.Add(this.fastGray);
             this.Controls.Add(this.buttonToggleTimer);
             this.Controls.Add(this.previousPicture);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -374,7 +362,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox previousPicture;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button buttonToggleTimer;
