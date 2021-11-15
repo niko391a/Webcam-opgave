@@ -400,14 +400,14 @@ namespace Webcam_AForge_Edition
                 {
                     timer1.Enabled = false; //disables the timer so that it can't run the code in the specified interval
                     buttonToggleTimer.BackColor = Color.Red; //visual feedback to user
-                    buttonToggleTimer.Enabled = true; //to prevent the two buttons from being pressed at the same time
+                    fastGray.Enabled = true; //to prevent the two buttons from being pressed at the same time
                 }
                 else
                 {
                     timer1.Enabled = true; //enables the timer so that it can run the code in the specified interval
                     timer2.Enabled = false; //prevents two timers from running at the same time
                     buttonToggleTimer.BackColor = Color.Green; //visual feedback to user
-                    buttonToggleTimer.Enabled = false; //to prevent the two buttons from being pressed at the same time
+                    fastGray.Enabled = false; //to prevent the two buttons from being pressed at the same time
                 }
             }
             catch (NullReferenceException)
@@ -459,7 +459,7 @@ namespace Webcam_AForge_Edition
 
         private void buttonBlobDetection_Click(object sender, EventArgs e)
         {
-            Bitmap bt = new Bitmap(imgCapture.Image); //convert system.drawing to bitmap
+            Bitmap bd = new Bitmap(imgCapture.Image); //convert system.drawing to bitmap
             ////create filter
             //ExtractBiggestBlob filter = new ExtractBiggestBlob();
             ////apply the filter
@@ -475,14 +475,14 @@ namespace Webcam_AForge_Edition
             // set ordering options
             bc.ObjectsOrder = ObjectsOrder.Size;
             // process binary image
-            bc.ProcessImage(bt);
+            bc.ProcessImage(bd);
             Blob[] blobs = bc.GetObjectsInformation();
             // extract the biggest blob
             if (blobs.Length > 0)
             {
-                bc.ExtractBlobsImage(bt, blobs[0], true);
+                bc.ExtractBlobsImage(bd, blobs[0], true);
             }
-            imgCapture.Image = (System.Drawing.Image)bt.Clone(); //clones the processed picture and displays it on the left
+            imgCapture.Image = (System.Drawing.Image)bd.Clone(); //clones the processed picture and displays it on the left
         }
     }
 }
