@@ -38,7 +38,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resolutionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rGBChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonStop = new System.Windows.Forms.Button();
             this.Rbutton = new System.Windows.Forms.Button();
             this.Bbutton = new System.Windows.Forms.Button();
@@ -133,8 +132,7 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.undoToolStripMenuItem,
-            this.resolutionToolStripMenuItem,
-            this.rGBChannelsToolStripMenuItem});
+            this.resolutionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1488, 40);
@@ -154,12 +152,6 @@
             this.resolutionToolStripMenuItem.Size = new System.Drawing.Size(147, 36);
             this.resolutionToolStripMenuItem.Text = "&Resolution";
             this.resolutionToolStripMenuItem.Click += new System.EventHandler(this.resolutionToolStripMenuItem_Click);
-            // 
-            // rGBChannelsToolStripMenuItem
-            // 
-            this.rGBChannelsToolStripMenuItem.Name = "rGBChannelsToolStripMenuItem";
-            this.rGBChannelsToolStripMenuItem.Size = new System.Drawing.Size(187, 36);
-            this.rGBChannelsToolStripMenuItem.Text = "RGB-Channels";
             // 
             // buttonStop
             // 
@@ -380,7 +372,6 @@
         private System.Windows.Forms.Button Bbutton;
         private System.Windows.Forms.Button Gbutton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripMenuItem rGBChannelsToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;

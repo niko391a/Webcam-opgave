@@ -400,12 +400,14 @@ namespace Webcam_AForge_Edition
                 {
                     timer1.Enabled = false; //disables the timer so that it can't run the code in the specified interval
                     buttonToggleTimer.BackColor = Color.Red; //visual feedback to user
+                    buttonToggleTimer.Enabled = true; //to prevent the two buttons from being pressed at the same time
                 }
                 else
                 {
                     timer1.Enabled = true; //enables the timer so that it can run the code in the specified interval
                     timer2.Enabled = false; //prevents two timers from running at the same time
                     buttonToggleTimer.BackColor = Color.Green; //visual feedback to user
+                    buttonToggleTimer.Enabled = false; //to prevent the two buttons from being pressed at the same time
                 }
             }
             catch (NullReferenceException)
@@ -444,23 +446,43 @@ namespace Webcam_AForge_Edition
             {
                 timer2.Enabled = false; //disables the timer so that it can't run the code in the specified interval
                 fastGray.BackColor = Color.Red; //visual feedback to user
+                buttonToggleTimer.Enabled = true; //to prevent the two buttons from being pressed at the same time
             }
             else
             {
                 timer1.Enabled = false; //prevents two timers from running at the same time
                 timer2.Enabled = true; //enables the timer so that it can run the code in the specified interval
                 fastGray.BackColor = Color.Green; //visual feedback to user
+                buttonToggleTimer.Enabled = false; //to prevent the two buttons from being pressed at the same time
             }
         }
 
         private void buttonBlobDetection_Click(object sender, EventArgs e)
         {
             Bitmap bt = new Bitmap(imgCapture.Image); //convert system.drawing to bitmap
-                                                      // create filter
-            ExtractBiggestBlob filter = new ExtractBiggestBlob();
-            // apply the filter
-            Bitmap biggestBlobsImage = filter.Apply(bt);
-            imgCapture.Image = (System.Drawing.Image)biggestBlobsImage.Clone(); //clones the picture grayImage and displays it on the left
+            ////create filter
+            //ExtractBiggestBlob filter = new ExtractBiggestBlob();
+            ////apply the filter
+            //Bitmap biggestBlobsImage = filter.Apply(bt);
+            //imgCapture.Image = (System.Drawing.Image)biggestBlobsImage.Clone(); //clones the picture grayImage and displays it on the left
+
+            // create an instance of blob counter algorithm
+            BlobCounterBase bc = new BlobCounter();
+            // set filtering options
+            bc.FilterBlobs = true;
+            bc.MinWidth = 5;
+            bc.MinHeight = 5;
+            // set ordering options
+            bc.ObjectsOrder = ObjectsOrder.Size;
+            // process binary image
+            bc.ProcessImage(bt);
+            Blob[] blobs = bc.GetObjectsInformation();
+            // extract the biggest blob
+            if (blobs.Length > 0)
+            {
+                bc.ExtractBlobsImage(bt, blobs[0], true);
+            }
+            imgCapture.Image = (System.Drawing.Image)bt.Clone(); //clones the processed picture and displays it on the left
         }
     }
 }
