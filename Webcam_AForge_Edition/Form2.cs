@@ -1,4 +1,6 @@
-﻿using AForge.Imaging.Filters;
+﻿using AForge.Imaging;
+using AForge.Imaging.Filters;
+using AForge.Math;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,17 +10,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Webcam_AForge_Edition
 {
     public partial class Form2 : Form
     {
+        int[] xData = new int[256];
+        int[] yData = new int[256];
 
-        public Image Imagefromform1 { get; set; }
+        public System.Drawing.Image Imagefromform1 { get; set; }
 
-        public Form2(Image im)
+        public Form2(System.Drawing.Image im)
         {
-
             Imagefromform1 = im;
 
             InitializeComponent();
@@ -33,14 +37,56 @@ namespace Webcam_AForge_Edition
             Bitmap grayImage = filter.Apply(bt);
             pictureBoxForm2.Image = (System.Drawing.Image)grayImage.Clone(); //clones the picture grayImage and displays it on the left
 
+            //-----------------------------------------------------------------------------------------------------------------------------------
+
+            // collect statistics
+            ImageStatistics his = new ImageStatistics(grayImage);
+            // get gray histogram (for grayscale image)
+            Histogram histogram = his.Gray;
             
-            
+            // output some histogram's information
+            System.Diagnostics.Debug.WriteLine("Mean = " + histogram.Mean);
+            System.Diagnostics.Debug.WriteLine("Min = " + histogram.Min);
+            System.Diagnostics.Debug.WriteLine("Max = " + histogram.Max);
 
 
+            //-----------------------------------------------------------------------------------------------------------------------------------
+            // series1
+            //
+            var series1 = new Series
+            {
+                Name = "series1",
+                // Disse og mange andre kan bruges, hvis man vil sætte properties i runtime (altså under programkørslen)
+                //LegendText = "Series LegendText",
+                //IsVisibleInLegend = true,
+                //IsXValueIndexed = true,
+                Color = Color.Black,
+                ChartType = SeriesChartType.Column
+            };
 
+            // Add datapoints to Series
+            for (int i = 0; i < histogram.Values.Count(); i++)
+            {
+                series1.Points.AddXY(xData[i], histogram.Values[i]);
+            }
+            // Transfer series data to form chart series
+            chart1.Series["Series1"] = series1;
+
+
+            //// Add datapoints to Series
+            //for (int i = 0; i < yData.Count(); i++)
+            //{
+            //    series1.Points.AddXY(histogram.Values, yData[i]);
+            //}
+            //// Transfer series data to form chart series
+            //chart1.Series["Series1"] = series1;
         }
 
+       
 
-
+        private void chart1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
