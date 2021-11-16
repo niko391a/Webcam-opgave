@@ -484,5 +484,49 @@ namespace Webcam_AForge_Edition
             Form2 NewForm = new Form2(imgCapture.Image);
             NewForm.Show();
         }
+
+        private void chooseFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            // var path = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            ofd.Title = "Open Image";
+            ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                // Only if picture is grapped
+                if (imgCapture.Image != null)
+                {
+                    // Push old captured image to stack
+                    imageStack.Push(new Bitmap(imgCapture.Image));
+                    undoToolStripMenuItem.Enabled = true;
+                }
+                Bitmap bt = new Bitmap(ofd.FileName);
+                imgCapture.Image = bt;
+                if (bt.Width < imgCapture.Width && bt.Height < imgCapture.Height)
+                {
+                    imgCapture.SizeMode = PictureBoxSizeMode.Normal;
+                }
+                else
+                {
+                    imgCapture.SizeMode = PictureBoxSizeMode.Zoom;
+                }
+            }
+            ofd.Dispose();
+            imageStack.Push(new Bitmap(imgCapture.Image));
+        }
+
+        private void saveFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Title = "Save Image";
+            sfd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            sfd.Filter = "Image Files(*.JPG)|*.JPG|All files (*.*)|*.*";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                imgCapture.Image.Save(sfd.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
+            sfd.Dispose();
+        }
     }
 }
