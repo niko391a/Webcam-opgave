@@ -94,6 +94,27 @@ namespace Webcam_AForge_Edition
             }
 
         }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            //creation hub
+            //Creation of greyscale filter
+            Grayscale filter = new Grayscale(0.2125, 0.7154, 0.0721);
+            Bitmap bt = new Bitmap(pictureBoxForm2.Image);
+
+            //applying the filter
+            Bitmap grayImage = filter.Apply(bt);
+            pictureBoxForm2.Image = (System.Drawing.Image)grayImage.Clone(); //clones the picture grayImage and displays it on the left
+
+            // create thresholdfilter
+            Threshold tfilter = new Threshold(trackBar1.Value);
+            Bitmap tbt = new Bitmap(pictureBoxForm2.Image);
+
+            // apply the filter
+            Bitmap thresh = tfilter.Apply(tbt);
+            label1.Text = Convert.ToString(trackBar1.Value);
+            pictureBoxForm2.Image = (System.Drawing.Image)thresh.Clone(); //clones the picture grayImage and displays it on the left
+        }
     }
 }
 
