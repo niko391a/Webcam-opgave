@@ -12,6 +12,7 @@ using AForge.Video;
 using AForge.Video.DirectShow;
 using AForge.Imaging.Filters;
 using AForge.Imaging;
+using AForge.Math;
 
 namespace Webcam_AForge_Edition
 {
@@ -453,30 +454,16 @@ namespace Webcam_AForge_Edition
 
         private void buttonBlobDetection_Click(object sender, EventArgs e) //to do
         {
-            Bitmap bd = new Bitmap(imgCapture.Image); //convert system.drawing to bitmap
-            ////create filter
-            //ExtractBiggestBlob filter = new ExtractBiggestBlob();
-            ////apply the filter
-            //Bitmap biggestBlobsImage = filter.Apply(bt);
-            //imgCapture.Image = (System.Drawing.Image)biggestBlobsImage.Clone(); //clones the picture grayImage and displays it on the left
-
-            // create an instance of blob counter algorithm
-            BlobCounterBase bc = new BlobCounter();
-            // set filtering options
-            bc.FilterBlobs = true;
-            bc.MinWidth = 5;
-            bc.MinHeight = 5;
-            // set ordering options
-            bc.ObjectsOrder = ObjectsOrder.Size;
-            // process binary image
-            bc.ProcessImage(bd);
-            Blob[] blobs = bc.GetObjectsInformation();
-            // extract the biggest blob
-            if (blobs.Length > 0)
-            {
-                bc.ExtractBlobsImage(bd, blobs[0], true);
-            }
-            imgCapture.Image = (System.Drawing.Image)bd.Clone(); //clones the processed picture and displays it on the left
+            //image load
+            Bitmap bt = new Bitmap (imgCapture.Image);
+            //collect statistics
+            HorizontalIntensityStatistics his = new HorizontalIntensityStatistics(bt);
+            //get gray histogram(for grayscale image)
+                Histogram histogram = his.Gray;
+           //output some histogram's information
+            System.Diagnostics.Debug.WriteLine("Mean = " + histogram.Mean);
+            System.Diagnostics.Debug.WriteLine("Min = " + histogram.Min);
+            System.Diagnostics.Debug.WriteLine("Max = " + histogram.Max);
         }
 
         private void displayToolStripMenuItem_Click(object sender, EventArgs e)
