@@ -97,9 +97,9 @@ namespace Webcam_AForge_Edition
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            //Creation of greyscale filter
+            //Creation of greyscale filter so that the threshold is in correct format
             Grayscale filter = new Grayscale(0.2125, 0.7154, 0.0721);
-            Bitmap bt = new Bitmap(pictureBoxOld.Image);
+            Bitmap bt = new Bitmap(pictureBoxOld.Image); //to prevent image from turning white a separate pictureBox was created to contain the original image
 
             //applying the filter
             Bitmap grayImage = filter.Apply(bt);
