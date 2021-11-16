@@ -478,5 +478,11 @@ namespace Webcam_AForge_Edition
             }
             imgCapture.Image = (System.Drawing.Image)bd.Clone(); //clones the processed picture and displays it on the left
         }
+
+        private void displayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 NewForm = new Form2(imgCapture.Image);
+            NewForm.Show();
+        }
     }
 }
