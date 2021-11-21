@@ -113,6 +113,11 @@ namespace Webcam_AForge_Edition
 
             label1.Text = Convert.ToString(trackBar1.Value); //visual feedback to user
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 
