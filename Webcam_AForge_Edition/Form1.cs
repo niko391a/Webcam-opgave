@@ -111,17 +111,24 @@ namespace Webcam_AForge_Edition
             CameraSettings cs = new CameraSettings(gv);
             DialogResult dr = cs.ShowDialog(); //shows available presets for webcam such as resolution and bitcount
 
-            if (DialogResult.OK == dr)
+            try
             {
-                // Get vidoresolution possibilities
-                VideoCapabilities[] vc = gv.FinalVideo.VideoCapabilities;
-                // Get selected resolution
-                int resolutionSelection = int.Parse(cs.tabControl1.SelectedTab.Text) - 1;  // Minus 1 due to 0 offset
-                // Set camera resolution
-                gv.FinalVideo.VideoResolution = vc[resolutionSelection];
-                // Enable eventhandler
-                gv.FinalVideo.NewFrame += new NewFrameEventHandler(FinalVideo_NewFrame); //eventhandler is started and we being to stream the video feed, finalvideo will be called when a new picture is created (fps)
-                gv.FinalVideo.Start();
+                if (DialogResult.OK == dr)
+                {
+                    // Get vidoresolution possibilities
+                    VideoCapabilities[] vc = gv.FinalVideo.VideoCapabilities;
+                    // Get selected resolution
+                    int resolutionSelection = int.Parse(cs.tabControl1.SelectedTab.Text) - 1;  // Minus 1 due to 0 offset
+                                                                                               // Set camera resolution
+                    gv.FinalVideo.VideoResolution = vc[resolutionSelection];
+                    // Enable eventhandler
+                    gv.FinalVideo.NewFrame += new NewFrameEventHandler(FinalVideo_NewFrame); //eventhandler is started and we being to stream the video feed, finalvideo will be called when a new picture is created (fps)
+                    gv.FinalVideo.Start();
+                }
+            }
+            catch (System.FormatException)
+            {
+                MessageBox.Show("You need to choose a webcam first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -182,28 +189,36 @@ namespace Webcam_AForge_Edition
         /**************************************************************************************/
         private void resolutionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            gv.FinalVideo.SignalToStop();
-
-            gv.FinalVideo.Stop(); //stops the video so we can make changes
-            gv.FinalVideo.WaitForStop();
-            gv.FinalVideo.NewFrame -= new NewFrameEventHandler(FinalVideo_NewFrame); //stops the processing of new images
-
-            CameraSettings cs = new CameraSettings(gv); //displays settings again
-            DialogResult dr = cs.ShowDialog();
-
-            if (DialogResult.OK == dr) //starts the event and video feed again
+        
+            try
             {
-                VideoCapabilities[] vc = gv.FinalVideo.VideoCapabilities;
-                int resolutionSelection = int.Parse(cs.tabControl1.SelectedTab.Text) - 1;  // Minus 1 due to 0 offset
+                gv.FinalVideo.SignalToStop();
 
-                gv.FinalVideo.VideoResolution = vc[resolutionSelection];
+                gv.FinalVideo.Stop(); //stops the video so we can make changes
+                gv.FinalVideo.WaitForStop();
+                gv.FinalVideo.NewFrame -= new NewFrameEventHandler(FinalVideo_NewFrame); //stops the processing of new images
 
-                gv.FinalVideo.NewFrame += new NewFrameEventHandler(FinalVideo_NewFrame);
-                gv.FinalVideo.Start();
+                CameraSettings cs = new CameraSettings(gv); //displays settings again
+                DialogResult dr = cs.ShowDialog();
 
-                buttonCamStart.Enabled = false;
-                buttonStop.Enabled = true;
-                buttonCamStart.Enabled = false;
+                if (DialogResult.OK == dr) //starts the event and video feed again
+                {
+                    VideoCapabilities[] vc = gv.FinalVideo.VideoCapabilities;
+                    int resolutionSelection = int.Parse(cs.tabControl1.SelectedTab.Text) - 1;  // Minus 1 due to 0 offset
+
+                    gv.FinalVideo.VideoResolution = vc[resolutionSelection];
+
+                    gv.FinalVideo.NewFrame += new NewFrameEventHandler(FinalVideo_NewFrame);
+                    gv.FinalVideo.Start();
+
+                    buttonCamStart.Enabled = false;
+                    buttonStop.Enabled = true;
+                    buttonCamStart.Enabled = false;
+                }
+            }
+            catch (System.NullReferenceException)
+            {
+                MessageBox.Show("You need to capture a picture first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -413,7 +428,6 @@ namespace Webcam_AForge_Edition
 
         private void timer2_Tick(object sender, EventArgs e) //a faster greyscale using aforge instead of couting each pixel
         {
-            try
             {
                 imgCapture.Image = (System.Drawing.Image)imgVideo.Image.Clone(); //clones the picture on the left and displays it on the right as a still frame
 
@@ -429,10 +443,6 @@ namespace Webcam_AForge_Edition
                 Bitmap grayImage = filter.Apply(bt);
                 imgCapture.Image = (System.Drawing.Image)grayImage.Clone(); //clones the picture grayImage and displays it on the left
                 p = 1; //switch case variable
-            }
-            catch (NullReferenceException)
-            {
-                //MessageBox.Show("You need to capture a picture first");
             }
         }
         private void fastGray_Click_1(object sender, EventArgs e)
@@ -452,18 +462,25 @@ namespace Webcam_AForge_Edition
             }
         }
 
-        private void buttonBlobDetection_Click(object sender, EventArgs e) //to do
+        private void buttonBlobDetection_Click(object sender, EventArgs e) //to do not finished
         {
-            //image load
-            Bitmap bt = new Bitmap (imgCapture.Image);
-            //collect statistics
-            HorizontalIntensityStatistics his = new HorizontalIntensityStatistics(bt);
-            //get gray histogram(for grayscale image)
+            try
+            {
+                //image load
+                Bitmap bt = new Bitmap(imgCapture.Image);
+                //collect statistics
+                HorizontalIntensityStatistics his = new HorizontalIntensityStatistics(bt);
+                //get gray histogram(for grayscale image)
                 Histogram histogram = his.Gray;
-           //output some histogram's information
-            System.Diagnostics.Debug.WriteLine("Mean = " + histogram.Mean);
-            System.Diagnostics.Debug.WriteLine("Min = " + histogram.Min);
-            System.Diagnostics.Debug.WriteLine("Max = " + histogram.Max);
+                //output some histogram's information
+                System.Diagnostics.Debug.WriteLine("Mean = " + histogram.Mean);
+                System.Diagnostics.Debug.WriteLine("Min = " + histogram.Min);
+                System.Diagnostics.Debug.WriteLine("Max = " + histogram.Max);
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("You need to capture a picture first");
+            }
         }
 
         private void displayToolStripMenuItem_Click(object sender, EventArgs e)
