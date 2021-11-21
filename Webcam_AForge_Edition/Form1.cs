@@ -470,6 +470,8 @@ namespace Webcam_AForge_Edition
         {
             Form2 NewForm = new Form2(imgCapture.Image);
             NewForm.Show();
+
+            imgCapture.Image = NewForm.pictureBoxForm2.Image;
         }
 
         private void chooseFileToolStripMenuItem_Click(object sender, EventArgs e)
