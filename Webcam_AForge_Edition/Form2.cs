@@ -116,11 +116,13 @@ namespace Webcam_AForge_Edition
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Closes Form2
             this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //Closes Form2
             this.Close();
         }
     }
