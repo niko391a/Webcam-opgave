@@ -53,10 +53,10 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.buttonToggleTimer = new System.Windows.Forms.Button();
             this.fastGray = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.buttonBlobDetection = new System.Windows.Forms.Button();
             this.horizontalTracking = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgVideo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -67,10 +67,10 @@
             // 
             // imgVideo
             // 
-            this.imgVideo.Location = new System.Drawing.Point(18, 62);
-            this.imgVideo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.imgVideo.Location = new System.Drawing.Point(9, 32);
+            this.imgVideo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.imgVideo.Name = "imgVideo";
-            this.imgVideo.Size = new System.Drawing.Size(724, 467);
+            this.imgVideo.Size = new System.Drawing.Size(362, 243);
             this.imgVideo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgVideo.TabIndex = 0;
             this.imgVideo.TabStop = false;
@@ -80,10 +80,10 @@
             this.buttonCapture.BackColor = System.Drawing.Color.Red;
             this.buttonCapture.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCapture.ForeColor = System.Drawing.Color.White;
-            this.buttonCapture.Location = new System.Drawing.Point(26, 617);
-            this.buttonCapture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCapture.Location = new System.Drawing.Point(13, 321);
+            this.buttonCapture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCapture.Name = "buttonCapture";
-            this.buttonCapture.Size = new System.Drawing.Size(716, 87);
+            this.buttonCapture.Size = new System.Drawing.Size(358, 45);
             this.buttonCapture.TabIndex = 1;
             this.buttonCapture.Text = "Capture";
             this.buttonCapture.UseVisualStyleBackColor = false;
@@ -92,18 +92,17 @@
             // comboBoxCameraList
             // 
             this.comboBoxCameraList.FormattingEnabled = true;
-            this.comboBoxCameraList.Location = new System.Drawing.Point(26, 848);
-            this.comboBoxCameraList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxCameraList.Location = new System.Drawing.Point(13, 435);
+            this.comboBoxCameraList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxCameraList.Name = "comboBoxCameraList";
-            this.comboBoxCameraList.Size = new System.Drawing.Size(180, 33);
+            this.comboBoxCameraList.Size = new System.Drawing.Size(92, 21);
             this.comboBoxCameraList.TabIndex = 2;
             // 
             // buttonCamStart
             // 
-            this.buttonCamStart.Location = new System.Drawing.Point(216, 837);
-            this.buttonCamStart.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonCamStart.Location = new System.Drawing.Point(108, 435);
             this.buttonCamStart.Name = "buttonCamStart";
-            this.buttonCamStart.Size = new System.Drawing.Size(150, 44);
+            this.buttonCamStart.Size = new System.Drawing.Size(75, 23);
             this.buttonCamStart.TabIndex = 3;
             this.buttonCamStart.Text = "Start";
             this.buttonCamStart.UseVisualStyleBackColor = true;
@@ -111,21 +110,20 @@
             // 
             // imgCapture
             // 
-            this.imgCapture.Location = new System.Drawing.Point(750, 62);
-            this.imgCapture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.imgCapture.Location = new System.Drawing.Point(375, 32);
+            this.imgCapture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.imgCapture.Name = "imgCapture";
-            this.imgCapture.Size = new System.Drawing.Size(716, 467);
+            this.imgCapture.Size = new System.Drawing.Size(358, 243);
             this.imgCapture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgCapture.TabIndex = 4;
             this.imgCapture.TabStop = false;
             // 
             // buttonGray
             // 
-            this.buttonGray.Location = new System.Drawing.Point(536, 837);
-            this.buttonGray.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonGray.Location = new System.Drawing.Point(268, 435);
             this.buttonGray.Name = "buttonGray";
             this.buttonGray.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.buttonGray.Size = new System.Drawing.Size(150, 44);
+            this.buttonGray.Size = new System.Drawing.Size(75, 23);
             this.buttonGray.TabIndex = 8;
             this.buttonGray.Text = "Gray scale";
             this.buttonGray.UseVisualStyleBackColor = true;
@@ -133,7 +131,6 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.undoToolStripMenuItem,
@@ -142,29 +139,29 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1488, 40);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(744, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(93, 36);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(48, 22);
             this.undoToolStripMenuItem.Text = "&Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
             // resolutionToolStripMenuItem
             // 
             this.resolutionToolStripMenuItem.Name = "resolutionToolStripMenuItem";
-            this.resolutionToolStripMenuItem.Size = new System.Drawing.Size(147, 36);
+            this.resolutionToolStripMenuItem.Size = new System.Drawing.Size(75, 22);
             this.resolutionToolStripMenuItem.Text = "&Resolution";
             this.resolutionToolStripMenuItem.Click += new System.EventHandler(this.resolutionToolStripMenuItem_Click);
             // 
             // displayToolStripMenuItem
             // 
             this.displayToolStripMenuItem.Name = "displayToolStripMenuItem";
-            this.displayToolStripMenuItem.Size = new System.Drawing.Size(112, 36);
+            this.displayToolStripMenuItem.Size = new System.Drawing.Size(57, 22);
             this.displayToolStripMenuItem.Text = "Display";
             this.displayToolStripMenuItem.Click += new System.EventHandler(this.displayToolStripMenuItem_Click);
             // 
@@ -174,29 +171,28 @@
             this.chooseFileToolStripMenuItem,
             this.saveFileToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(72, 36);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 22);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // chooseFileToolStripMenuItem
             // 
             this.chooseFileToolStripMenuItem.Name = "chooseFileToolStripMenuItem";
-            this.chooseFileToolStripMenuItem.Size = new System.Drawing.Size(273, 44);
+            this.chooseFileToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.chooseFileToolStripMenuItem.Text = "Choose File";
             this.chooseFileToolStripMenuItem.Click += new System.EventHandler(this.chooseFileToolStripMenuItem_Click);
             // 
             // saveFileToolStripMenuItem
             // 
             this.saveFileToolStripMenuItem.Name = "saveFileToolStripMenuItem";
-            this.saveFileToolStripMenuItem.Size = new System.Drawing.Size(273, 44);
+            this.saveFileToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.saveFileToolStripMenuItem.Text = "Save File";
             this.saveFileToolStripMenuItem.Click += new System.EventHandler(this.saveFileToolStripMenuItem_Click);
             // 
             // buttonStop
             // 
-            this.buttonStop.Location = new System.Drawing.Point(374, 837);
-            this.buttonStop.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonStop.Location = new System.Drawing.Point(187, 435);
             this.buttonStop.Name = "buttonStop";
-            this.buttonStop.Size = new System.Drawing.Size(150, 44);
+            this.buttonStop.Size = new System.Drawing.Size(75, 23);
             this.buttonStop.TabIndex = 11;
             this.buttonStop.Text = "Stop";
             this.buttonStop.UseVisualStyleBackColor = true;
@@ -209,10 +205,9 @@
             this.Rbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rbutton.ForeColor = System.Drawing.Color.White;
             this.Rbutton.Location = new System.Drawing.Point(0, 0);
-            this.Rbutton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Rbutton.Name = "Rbutton";
             this.Rbutton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Rbutton.Size = new System.Drawing.Size(238, 83);
+            this.Rbutton.Size = new System.Drawing.Size(119, 43);
             this.Rbutton.TabIndex = 12;
             this.Rbutton.Text = "R-channel";
             this.Rbutton.UseVisualStyleBackColor = false;
@@ -224,11 +219,10 @@
             this.Bbutton.Dock = System.Windows.Forms.DockStyle.Right;
             this.Bbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Bbutton.ForeColor = System.Drawing.Color.White;
-            this.Bbutton.Location = new System.Drawing.Point(478, 0);
-            this.Bbutton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Bbutton.Location = new System.Drawing.Point(239, 0);
             this.Bbutton.Name = "Bbutton";
             this.Bbutton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Bbutton.Size = new System.Drawing.Size(238, 83);
+            this.Bbutton.Size = new System.Drawing.Size(119, 43);
             this.Bbutton.TabIndex = 13;
             this.Bbutton.Text = "B-channel";
             this.Bbutton.UseVisualStyleBackColor = false;
@@ -239,11 +233,10 @@
             this.Gbutton.BackColor = System.Drawing.Color.ForestGreen;
             this.Gbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Gbutton.ForeColor = System.Drawing.Color.White;
-            this.Gbutton.Location = new System.Drawing.Point(240, 0);
-            this.Gbutton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Gbutton.Location = new System.Drawing.Point(120, 0);
             this.Gbutton.Name = "Gbutton";
             this.Gbutton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Gbutton.Size = new System.Drawing.Size(238, 83);
+            this.Gbutton.Size = new System.Drawing.Size(119, 43);
             this.Gbutton.TabIndex = 14;
             this.Gbutton.Text = "G-channel";
             this.Gbutton.UseVisualStyleBackColor = false;
@@ -252,10 +245,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1084, 560);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(542, 291);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 25);
+            this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 15;
             // 
             // button1
@@ -263,10 +256,10 @@
             this.button1.BackColor = System.Drawing.Color.OliveDrab;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(750, 617);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(375, 321);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(716, 87);
+            this.button1.Size = new System.Drawing.Size(358, 45);
             this.button1.TabIndex = 16;
             this.button1.Text = "RGB-Channels";
             this.button1.UseVisualStyleBackColor = false;
@@ -277,18 +270,18 @@
             this.panel1.Controls.Add(this.Rbutton);
             this.panel1.Controls.Add(this.Bbutton);
             this.panel1.Controls.Add(this.Gbutton);
-            this.panel1.Location = new System.Drawing.Point(750, 705);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(375, 367);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(716, 83);
+            this.panel1.Size = new System.Drawing.Size(358, 43);
             this.panel1.TabIndex = 17;
             // 
             // previousPicture
             // 
-            this.previousPicture.Location = new System.Drawing.Point(1128, 4);
-            this.previousPicture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.previousPicture.Location = new System.Drawing.Point(9, 278);
+            this.previousPicture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.previousPicture.Name = "previousPicture";
-            this.previousPicture.Size = new System.Drawing.Size(100, 50);
+            this.previousPicture.Size = new System.Drawing.Size(50, 26);
             this.previousPicture.TabIndex = 19;
             this.previousPicture.TabStop = false;
             // 
@@ -299,11 +292,10 @@
             // buttonToggleTimer
             // 
             this.buttonToggleTimer.BackColor = System.Drawing.Color.Red;
-            this.buttonToggleTimer.Location = new System.Drawing.Point(698, 841);
-            this.buttonToggleTimer.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonToggleTimer.Location = new System.Drawing.Point(349, 437);
             this.buttonToggleTimer.Name = "buttonToggleTimer";
             this.buttonToggleTimer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.buttonToggleTimer.Size = new System.Drawing.Size(232, 44);
+            this.buttonToggleTimer.Size = new System.Drawing.Size(116, 23);
             this.buttonToggleTimer.TabIndex = 21;
             this.buttonToggleTimer.Text = "Toggle Auto Capture";
             this.buttonToggleTimer.UseVisualStyleBackColor = false;
@@ -312,24 +304,14 @@
             // fastGray
             // 
             this.fastGray.BackColor = System.Drawing.Color.Red;
-            this.fastGray.Location = new System.Drawing.Point(940, 837);
-            this.fastGray.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fastGray.Location = new System.Drawing.Point(470, 435);
+            this.fastGray.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.fastGray.Name = "fastGray";
-            this.fastGray.Size = new System.Drawing.Size(250, 44);
+            this.fastGray.Size = new System.Drawing.Size(125, 23);
             this.fastGray.TabIndex = 22;
             this.fastGray.Text = "Toggle Auto grayscale";
             this.fastGray.UseVisualStyleBackColor = false;
             this.fastGray.Click += new System.EventHandler(this.fastGray_Click_1);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(940, 788);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(8, 8);
-            this.button3.TabIndex = 23;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // timer2
             // 
@@ -337,10 +319,10 @@
             // 
             // buttonBlobDetection
             // 
-            this.buttonBlobDetection.Location = new System.Drawing.Point(1198, 837);
-            this.buttonBlobDetection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonBlobDetection.Location = new System.Drawing.Point(599, 435);
+            this.buttonBlobDetection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonBlobDetection.Name = "buttonBlobDetection";
-            this.buttonBlobDetection.Size = new System.Drawing.Size(182, 40);
+            this.buttonBlobDetection.Size = new System.Drawing.Size(91, 21);
             this.buttonBlobDetection.TabIndex = 24;
             this.buttonBlobDetection.Text = "Blob detection";
             this.buttonBlobDetection.UseVisualStyleBackColor = true;
@@ -348,21 +330,31 @@
             // 
             // horizontalTracking
             // 
-            this.horizontalTracking.Location = new System.Drawing.Point(750, 536);
+            this.horizontalTracking.Location = new System.Drawing.Point(375, 279);
+            this.horizontalTracking.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.horizontalTracking.Name = "horizontalTracking";
-            this.horizontalTracking.Size = new System.Drawing.Size(716, 50);
+            this.horizontalTracking.Size = new System.Drawing.Size(358, 26);
             this.horizontalTracking.TabIndex = 25;
             this.horizontalTracking.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(208, 372);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "label2";
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1488, 902);
+            this.ClientSize = new System.Drawing.Size(744, 469);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.horizontalTracking);
             this.Controls.Add(this.buttonBlobDetection);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.fastGray);
             this.Controls.Add(this.buttonToggleTimer);
             this.Controls.Add(this.previousPicture);
@@ -379,7 +371,7 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "WebCam Tool";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -418,7 +410,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button buttonToggleTimer;
         private System.Windows.Forms.Button fastGray;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Button buttonBlobDetection;
         private System.Windows.Forms.ToolStripMenuItem displayToolStripMenuItem;
@@ -426,6 +417,7 @@
         private System.Windows.Forms.ToolStripMenuItem chooseFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveFileToolStripMenuItem;
         private System.Windows.Forms.PictureBox horizontalTracking;
+        private System.Windows.Forms.Label label2;
     }
 }
 
