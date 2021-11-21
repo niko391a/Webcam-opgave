@@ -479,7 +479,7 @@ namespace Webcam_AForge_Edition
                 label2.Text = Convert.ToString(histogram.Mean);
                 G.DrawRectangle(new Pen(Color.Red), Convert.ToInt32(histogram.Mean), 279, Convert.ToInt32(histogram.Mean + 100), 279);
         }
-            catch (AForge.Imaging.InvalidImagePropertiesException)
+            catch (NullReferenceException)
             {
                 MessageBox.Show("You need to capture a grey picture first");
             }

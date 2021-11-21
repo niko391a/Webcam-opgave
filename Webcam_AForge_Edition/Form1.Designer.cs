@@ -55,20 +55,18 @@
             this.fastGray = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.buttonBlobDetection = new System.Windows.Forms.Button();
-            this.horizontalTracking = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgVideo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.previousPicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.horizontalTracking)).BeginInit();
             this.SuspendLayout();
             // 
             // imgVideo
             // 
             this.imgVideo.Location = new System.Drawing.Point(9, 32);
-            this.imgVideo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imgVideo.Margin = new System.Windows.Forms.Padding(2);
             this.imgVideo.Name = "imgVideo";
             this.imgVideo.Size = new System.Drawing.Size(362, 243);
             this.imgVideo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -81,7 +79,7 @@
             this.buttonCapture.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCapture.ForeColor = System.Drawing.Color.White;
             this.buttonCapture.Location = new System.Drawing.Point(13, 321);
-            this.buttonCapture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCapture.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCapture.Name = "buttonCapture";
             this.buttonCapture.Size = new System.Drawing.Size(358, 45);
             this.buttonCapture.TabIndex = 1;
@@ -93,7 +91,7 @@
             // 
             this.comboBoxCameraList.FormattingEnabled = true;
             this.comboBoxCameraList.Location = new System.Drawing.Point(13, 435);
-            this.comboBoxCameraList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxCameraList.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxCameraList.Name = "comboBoxCameraList";
             this.comboBoxCameraList.Size = new System.Drawing.Size(92, 21);
             this.comboBoxCameraList.TabIndex = 2;
@@ -111,7 +109,7 @@
             // imgCapture
             // 
             this.imgCapture.Location = new System.Drawing.Point(375, 32);
-            this.imgCapture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imgCapture.Margin = new System.Windows.Forms.Padding(2);
             this.imgCapture.Name = "imgCapture";
             this.imgCapture.Size = new System.Drawing.Size(358, 243);
             this.imgCapture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -257,7 +255,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(375, 321);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(358, 45);
             this.button1.TabIndex = 16;
@@ -271,7 +269,7 @@
             this.panel1.Controls.Add(this.Bbutton);
             this.panel1.Controls.Add(this.Gbutton);
             this.panel1.Location = new System.Drawing.Point(375, 367);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(358, 43);
             this.panel1.TabIndex = 17;
@@ -279,7 +277,7 @@
             // previousPicture
             // 
             this.previousPicture.Location = new System.Drawing.Point(9, 278);
-            this.previousPicture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.previousPicture.Margin = new System.Windows.Forms.Padding(2);
             this.previousPicture.Name = "previousPicture";
             this.previousPicture.Size = new System.Drawing.Size(50, 26);
             this.previousPicture.TabIndex = 19;
@@ -305,7 +303,7 @@
             // 
             this.fastGray.BackColor = System.Drawing.Color.Red;
             this.fastGray.Location = new System.Drawing.Point(470, 435);
-            this.fastGray.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fastGray.Margin = new System.Windows.Forms.Padding(2);
             this.fastGray.Name = "fastGray";
             this.fastGray.Size = new System.Drawing.Size(125, 23);
             this.fastGray.TabIndex = 22;
@@ -320,22 +318,13 @@
             // buttonBlobDetection
             // 
             this.buttonBlobDetection.Location = new System.Drawing.Point(599, 435);
-            this.buttonBlobDetection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBlobDetection.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBlobDetection.Name = "buttonBlobDetection";
             this.buttonBlobDetection.Size = new System.Drawing.Size(91, 21);
             this.buttonBlobDetection.TabIndex = 24;
             this.buttonBlobDetection.Text = "Blob detection";
             this.buttonBlobDetection.UseVisualStyleBackColor = true;
             this.buttonBlobDetection.Click += new System.EventHandler(this.buttonBlobDetection_Click);
-            // 
-            // horizontalTracking
-            // 
-            this.horizontalTracking.Location = new System.Drawing.Point(375, 279);
-            this.horizontalTracking.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.horizontalTracking.Name = "horizontalTracking";
-            this.horizontalTracking.Size = new System.Drawing.Size(358, 26);
-            this.horizontalTracking.TabIndex = 25;
-            this.horizontalTracking.TabStop = false;
             // 
             // label2
             // 
@@ -353,7 +342,6 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(744, 469);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.horizontalTracking);
             this.Controls.Add(this.buttonBlobDetection);
             this.Controls.Add(this.fastGray);
             this.Controls.Add(this.buttonToggleTimer);
@@ -371,7 +359,7 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "WebCam Tool";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -382,7 +370,6 @@
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.previousPicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.horizontalTracking)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -416,7 +403,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chooseFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveFileToolStripMenuItem;
-        private System.Windows.Forms.PictureBox horizontalTracking;
         private System.Windows.Forms.Label label2;
     }
 }
