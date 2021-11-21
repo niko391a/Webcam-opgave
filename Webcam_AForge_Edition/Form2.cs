@@ -18,12 +18,15 @@ namespace Webcam_AForge_Edition
     {
         int[] xData = new int[256];
         int[] yData = new int[256];
+
+        public bool checkOK = false;
+
         
-        
-           
-            
+
 
         public System.Drawing.Image Imagefromform1 { get; set; }
+
+        public System.Drawing.Image Imagefromform2 { get; set; }
 
         public Form2(System.Drawing.Image im)
         {
@@ -114,8 +117,15 @@ namespace Webcam_AForge_Edition
             label1.Text = Convert.ToString(trackBar1.Value); //visual feedback to user
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
+            checkOK = true;
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
             this.Close();
         }
     }

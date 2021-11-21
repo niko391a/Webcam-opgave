@@ -13,6 +13,7 @@ using AForge.Video.DirectShow;
 using AForge.Imaging.Filters;
 using AForge.Imaging;
 using AForge.Math;
+using static Webcam_AForge_Edition.Form2;
 
 namespace Webcam_AForge_Edition
 {
@@ -22,6 +23,8 @@ namespace Webcam_AForge_Edition
         Stack<Bitmap> imageStack; //stack of bitmap pictures (pictures from webcam is bitmap) is initialized
         internal GlobalVars gv;  // Instantiate Global Var
         int p = 1;
+
+        
 
         public Form1()
         {
@@ -470,6 +473,13 @@ namespace Webcam_AForge_Edition
         {
             Form2 NewForm = new Form2(imgCapture.Image);
             NewForm.Show();
+
+            imgCapture.Image = NewForm.pictureBoxForm2.Image;
+
+
+
+
+
         }
 
         private void chooseFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -514,6 +524,14 @@ namespace Webcam_AForge_Edition
                 imgCapture.Image.Save(sfd.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
             }
             sfd.Dispose();
+        }
+
+        private void form2closed()
+        {
+            if (Application.OpenForms.OfType<Form2>().Count() == 1)
+            {
+                //imgCapture.Image = Form2.Imagefromform2;
+            }
         }
     }
 }
