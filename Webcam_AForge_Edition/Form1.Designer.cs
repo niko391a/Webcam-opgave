@@ -56,11 +56,14 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.buttonBlobDetection = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.buttonWhiteBlobDetection = new System.Windows.Forms.Button();
+            this.FilterBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgVideo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.previousPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FilterBox)).BeginInit();
             this.SuspendLayout();
             // 
             // imgVideo
@@ -317,12 +320,12 @@
             // 
             // buttonBlobDetection
             // 
-            this.buttonBlobDetection.Location = new System.Drawing.Point(599, 435);
+            this.buttonBlobDetection.Location = new System.Drawing.Point(599, 434);
             this.buttonBlobDetection.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBlobDetection.Name = "buttonBlobDetection";
-            this.buttonBlobDetection.Size = new System.Drawing.Size(91, 21);
+            this.buttonBlobDetection.Size = new System.Drawing.Size(119, 21);
             this.buttonBlobDetection.TabIndex = 24;
-            this.buttonBlobDetection.Text = "Blob detection";
+            this.buttonBlobDetection.Text = "Black Blob detection";
             this.buttonBlobDetection.UseVisualStyleBackColor = true;
             this.buttonBlobDetection.Click += new System.EventHandler(this.buttonBlobDetection_Click);
             // 
@@ -335,12 +338,33 @@
             this.label2.TabIndex = 26;
             this.label2.Text = "label2";
             // 
+            // buttonWhiteBlobDetection
+            // 
+            this.buttonWhiteBlobDetection.Location = new System.Drawing.Point(599, 413);
+            this.buttonWhiteBlobDetection.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonWhiteBlobDetection.Name = "buttonWhiteBlobDetection";
+            this.buttonWhiteBlobDetection.Size = new System.Drawing.Size(119, 21);
+            this.buttonWhiteBlobDetection.TabIndex = 27;
+            this.buttonWhiteBlobDetection.Text = "White Blob detection";
+            this.buttonWhiteBlobDetection.UseVisualStyleBackColor = true;
+            this.buttonWhiteBlobDetection.Click += new System.EventHandler(this.buttonWhiteBlobDetection_Click);
+            // 
+            // FilterBox
+            // 
+            this.FilterBox.Location = new System.Drawing.Point(64, 278);
+            this.FilterBox.Name = "FilterBox";
+            this.FilterBox.Size = new System.Drawing.Size(56, 26);
+            this.FilterBox.TabIndex = 28;
+            this.FilterBox.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(744, 469);
+            this.Controls.Add(this.FilterBox);
+            this.Controls.Add(this.buttonWhiteBlobDetection);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonBlobDetection);
             this.Controls.Add(this.fastGray);
@@ -370,6 +394,7 @@
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.previousPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FilterBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,6 +429,8 @@
         private System.Windows.Forms.ToolStripMenuItem chooseFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveFileToolStripMenuItem;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonWhiteBlobDetection;
+        private System.Windows.Forms.PictureBox FilterBox;
     }
 }
 

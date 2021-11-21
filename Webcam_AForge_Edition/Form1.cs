@@ -38,7 +38,7 @@ namespace Webcam_AForge_Edition
         /**************************************************************************************/
         private void Form1_Load(object sender, EventArgs e)
         {
-            G = this.CreateGraphics(); 
+            G = this.CreateGraphics();
             imageStack = new Stack<Bitmap>(); //instance of bitmap is created
 
             gv.VideoCaptureDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice); //gives all video devices and put them in a list
@@ -468,22 +468,12 @@ namespace Webcam_AForge_Edition
                 imgCapture.Image = (System.Drawing.Image)grayImage.Clone(); //clones the picture grayImage and displays it on the left
                 previousPicture.Image = (System.Drawing.Image)grayImage.Clone(); //clones the picture grayImage and displays it on the left
 
-                //collect statistics
-                HorizontalIntensityStatistics his = new HorizontalIntensityStatistics(grayImage);
-                //get gray histogram(for grayscale image)
-                Histogram histogram = his.Gray;
-                //output some histogram's information
-                System.Diagnostics.Debug.WriteLine("Mean = " + histogram.Mean);
-                System.Diagnostics.Debug.WriteLine("Min = " + histogram.Min);
-                System.Diagnostics.Debug.WriteLine("Max = " + histogram.Max);
-                label2.Text = Convert.ToString(histogram.Mean);
-                G.DrawRectangle(new Pen(Color.Red), Convert.ToInt32(histogram.Mean), 279, Convert.ToInt32(histogram.Mean + 100), 279);
-        }
+            }
             catch (NullReferenceException)
             {
                 MessageBox.Show("You need to capture a grey picture first");
             }
-}
+        }
 
         private void displayToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -533,6 +523,27 @@ namespace Webcam_AForge_Edition
                 imgCapture.Image.Save(sfd.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
             }
             sfd.Dispose();
+        }
+
+        private void buttonWhiteBlobDetection_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Creation of greyscale filter
+                Grayscale filter = new Grayscale(0.2125, 0.7154, 0.0721);
+                IFilter thresholdFilter = new Threshold(220);
+                Bitmap bt = new Bitmap(imgCapture.Image);
+
+                //applying the filter
+                Bitmap grayImage = filter.Apply(bt);
+                imgCapture.Image = (System.Drawing.Image)grayImage.Clone(); //clones the picture grayImage and displays it on the left
+                previousPicture.Image = (System.Drawing.Image)grayImage.Clone(); //clones the picture grayImage and displays it on the left
+
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("You need to capture a grey picture first");
+            }
         }
     }
 }
